@@ -1,0 +1,32 @@
+---
+channels:
+  /employees:
+    subscribe:
+      bindings:
+        http:
+          type: :request
+          method: GET
+          query:
+            type: object
+            required:
+              - company_id
+            properties:
+              company_id:
+                type: number
+                minimum: 1
+                description: The ID of the company
+            additional_properties: false
+          binding_version: '0.1.0'
+  test:
+    publish:
+      message:
+        bindings:
+          http:
+            headers:
+              type: object
+              properties:
+                Content-Type:
+                  type: string
+                  enum: ['application/json']
+            meta:
+              version: '0.1.0'

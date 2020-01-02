@@ -1,0 +1,40 @@
+---
+channels:
+  user/signup:
+    publish:
+      bindings:
+        amqp:
+          expiration: 100_000
+          user_id: guest
+          cc: ['user.logs']
+          priority: 10
+          delivery_mode: 2
+          mandatory: false
+          bcc: ['external.audit']
+          reply_to: user.signedup
+          timestamp: true
+          ack: false
+          binding_version: 0.2.0
+      message:
+        bindings:
+          amqp:
+            content_encoding: gzip
+            message_type: 'user/signup'
+            binding_version: 0.2.0
+  user/signedup:
+    bindings:
+      amqp:
+        is: routingKey
+        queue:
+          name: my-queue-name
+          durable: true
+          exclusive: true
+          auto_delete: false
+          vhost: /
+        exchange:
+          name: myExchange
+          type: topic
+          durable: true
+          auto_delete: false
+          vhost: /
+        binding_version: 0.2.0

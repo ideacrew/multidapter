@@ -1,0 +1,363 @@
+ INFO  multidapter : just some friendly advice
+ INFO  multidapter : just some friendly advice
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+ERROR  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+DEBUG  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+DEBUG  multidapter : foo bar
+ WARN  multidapter : just a little warning
+ INFO  multidapter : info level messages should be output by the logger
+ WARN  multidapter : warn level messages should be output by the logger
+ERROR  multidapter : error level messages should be output by the logger
+FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
+  DEBUG  multidapter : foo bar
+   WARN  multidapter : just a little warning
+   INFO  multidapter : info level messages should be output by the logger
+  TRACE  multidapter : trace level messages should be output by the logger
+   WARN  multidapter : warn level messages should be output by the logger
+  ERROR  multidapter : error level messages should be output by the logger
+  FATAL  multidapter : fatal level messages should be output by the logger
