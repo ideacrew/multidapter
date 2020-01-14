@@ -9,8 +9,9 @@ module Types
 
   # URI                 = Coercible::String.constrained(format: /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/)
   # URI                 = Coercible::String.constructor(->(val){ ::URI::parse(val) })
-  URI                 = Types.Constructor(URI) { |value| ::URI::parse(value) }
-  URL                 = URI
+  # URI                 = Types.Constructor(URI) { |value| ::URI::parse(value) }
+  Uri                 = Types.Constructor(::URI) { |val| ::URI.parse(val) }
+  Url                 = Uri
 
   # URL   = String.constrained(format: //)
   # URI   = String.constrained(format: /^#{URI::regexp}$/)

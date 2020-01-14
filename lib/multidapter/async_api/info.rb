@@ -14,7 +14,7 @@ module Multidapter
       attribute :description,       Types::String.optional.meta(omittable: true)
 
         # URL to the Terms of Service for the API. MUST be in the format of a URL
-      attribute :terms_of_service,  Types::URL.optional.meta(omittable: true)
+      attribute :terms_of_service,  Types::Url.optional.meta(omittable: true)
 
         # contact information for the exposed API
       attribute :contact do

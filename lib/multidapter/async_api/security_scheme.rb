@@ -41,7 +41,7 @@ module Multidapter
 
       # Applies to: openIdConnect. REQUIRED. OpenId Connect URL to discover OAuth2 configuration values. 
       # This MUST be in the form of a URL
-      attribute :open_id_connect_url, Types::URL
+      attribute :open_id_connect_url, Types::Url
 
       # Applies to: oauth2 (OAuth Flows Object).  REQUIRED. An object containing configuration information 
       # for the flow types supported.

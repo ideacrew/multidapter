@@ -11,7 +11,7 @@ module Multidapter
         optional(:in).maybe(:symbol)
         optional(:scheme).maybe(:string)
         optional(:bearer_format).maybe(:string)
-        optional(:open_id_connect_url).maybe(Types::URL)
+        optional(:open_id_connect_url).maybe(Types::Url)
         optional(:flows).maybe(:hash)
 
 

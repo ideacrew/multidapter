@@ -6,7 +6,7 @@ module Multidapter
 
         # URL to the target host. Variable substitutions will be made when a variable is 
         # named in {brackets}. (required)
-        attribute :url,               Types::URL
+        attribute :url,               Types::Url
 
         # protocol this URL supports for connection. Supported protocol include, but are not limited to: 
         # amqp, amqps, http, https, jms, kafka, kafka-secure, mqtt, secure-mqtt, stomp, stomps, ws, wss
