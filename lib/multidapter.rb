@@ -1,33 +1,38 @@
 require "multidapter/version"
-require 'securerandom'
-require 'uri'
+require "multidapter/errors"
 require 'multidapter/types'
+
+require "multidapter/log"
+require "multidapter/config/load_config"
+require "multidapter/operations"
+
+require 'uri'
+require 'securerandom'
 require 'dry/struct'
-
-
-# Add custom URI schemes recognized by Multidapter
-gem_root = File.dirname(File.absolute_path(__FILE__))
-Dir.glob(gem_root + '/multidapter/uris/*.rb') { |file| require file }
-
 require "multidapter/async_api/async_api"
+
+# load_path = "lib/multidapter/operations"
+# files << Dir[File.expand_path(load_path) + "/*.rb"]
+# files.each { |file| require file }
+
+# gem_root = File.dirname(File.absolute_path(__FILE__))
+# Dir.glob(gem_root + 'lib/multidapter/operations/*.rb') { |file| require file }
+
 require "multidapter/node"
-require "multidapter/protocols/amqp_node"
-# require "multidapter/log"
-# require "multidapter/message"
-# require "multidapter/endpoint"
-# require "multidapter/server"
+require "multidapter/adapters"
+require "multidapter/message"
 
 module Multidapter
 
-  def self.generate_uuid
-    SecureRandom.uuid
-  end
-
-  def self.generate_id
-    generate_uuid
-  end
-
   module ClassMethods
+
+    def generate_uuid
+      SecureRandom.uuid
+    end
+
+    def generate_id
+      generate_uuid
+    end
 
     # Turn on logging
     #   class Foo

@@ -26,9 +26,7 @@ module Multidapter
           if key?
             result = SecuritySchemeSchema.call(value)
 
-            # key.failure expects a string value.  Convert errors hash to json so that it can be
-            # restored to hash instance by colling service
-            # key.failure(result.errors.to_h.to_json) if result && result.failure?
+            # Use dry-validation metadata form to pass error hash along with text to calling service
             key.failure(text: "invalid security_scheme", error: result.errors.to_h) if result && result.failure?
           end
         end

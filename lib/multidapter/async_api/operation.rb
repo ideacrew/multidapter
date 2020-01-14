@@ -1,5 +1,5 @@
 # frozen_string_literal true
-# Describes a publish or a subscribe operation on a \Cchannel
+# Describes a publish or a subscribe operation on a Channel
 
 module Multidapter
   module AsyncApi

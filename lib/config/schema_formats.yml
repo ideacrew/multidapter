@@ -1,0 +1,19 @@
+---
+asyncapi:
+  schema_formats:
+    version: "2.0"
+      async_api_2_0_0:
+        - "application/vnd.aai.asyncapi;version=2.0.0"
+        - "application/vnd.aai.asyncapi+json;version=2.0.0"
+        - "application/vnd.aai.asyncapi+yaml;version=2.0.0"
+      open_api_3_0_0:
+        - "application/vnd.oai.openapi;version=3.0.0"
+        - "application/vnd.oai.openapi+json;version=3.0.0"
+        - "application/vnd.oai.openapi+yaml;version=3.0.0"
+      json_schema_draft_07:
+        - "application/schema+json;version=draft-07"
+        - "application/schema+yaml;version=draft-07"
+      avro_1_9_0:
+        - "application/vnd.apache.avro;version=1.9.0"
+        - "application/vnd.apache.avro+json;version=1.9.0"
+        - "application/vnd.apache.avro+yaml;version=1.9.0"

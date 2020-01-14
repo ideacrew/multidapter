@@ -13,6 +13,7 @@ RSpec.describe Types do
     end
 
     it 'an incorrect value is not valid' do
+      # binding.pry
       expect{type[invalid_value]}.to raise_error Dry::Types::ConstraintError
     end
   end
@@ -32,11 +33,11 @@ RSpec.describe Types do
     end
   end
 
-  describe "Types::ChannelType" do
-    subject(:type)          { Types::ChannelType }
-    let(:valid_value_key)         { :queue }
+  describe "Types::AmqpChannelType" do
+    subject(:type)            { Types::AmqpChannelType }
+    let(:valid_value_key)     { :queue }
     let(:valid_value_string)  { "routing_key" }
-    let(:invalid_value_key)       { :silly }
+    let(:invalid_value_key)   { :silly }
 
     it 'a correct value is valid' do
       expect(type[valid_value_key]).to be_truthy

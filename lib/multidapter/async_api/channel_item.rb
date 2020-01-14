@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 # Describes the operations available on a single channel
 
-
-
 module Multidapter
   module AsyncApi
     class ChannelItem < Dry::Struct

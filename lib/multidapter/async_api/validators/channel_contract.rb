@@ -3,23 +3,27 @@
 module Multidapter
   module AsyncApi
     module Validators
-      ChannelContract = Multidapter::AsyncApi::Validators::Contract.build do
 
-        params do
-          required(:key).value(:symbol)
+      ChannelItemSchema = Dry::Schema.Params do
 
-          optional(:settings).array(:hash) do
-            required(:key).value(:symbol)
-            required(:default).filled(:any)
-            optional(:title).maybe(:string)
-            optional(:description).maybe(:string)
-            optional(:options).maybe(:array)
-            optional(:type).maybe(:symbol)
-            optional(:value).maybe(:string)
+        optional(:ref).value(:string)
+        optional(:description).value(:string)
+        optional(:subscribe).value(:hash)
+        optional(:publish).value(:hash)
+        optional(:parameters).value(:hash)
+        optional(:bindings).value(:hash)
+
+      end
+
+      class ChannelContract < Dry::Validation::Contract
+
+
+        rule(:bindings) do
+          if key?
+
           end
-
-          optional(:namespaces).array(:hash)
         end
+
       end
     end
   end

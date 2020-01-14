@@ -1,6 +1,6 @@
 module Multidapter
   module Security
-    class SslSecurity
+    class SslSecurityScheme
 
       # See TLS/SSL CA default paths: http://rubybunny.info/articles/tls.html
 

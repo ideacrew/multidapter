@@ -3,24 +3,17 @@
 
 module Multidapter
   module AsyncApi
-    class Tag
+    class Tag < Dry::Struct
 
-      OPTIONS_DEFAULT = {
+      # Tag name (required)
+      attribute :name, Types::String
 
-        # Tag name (required)
-        name:           "", 
+      # short description for the tag. CommonMark syntax can be used for
+      # rich text representation
+      attribute :description, Types::String
 
-        # short description for the tag. CommonMark syntax can be used for 
-        # rich text representation
-        description:    "",
-
-        # Additional external documentation for this tag
-        external_docs:  nil,
-      }
-
-
-      def initialize
-      end
+      # Additional external documentation for this tag
+      attribute :external_docs, ExternalDocumentation
 
     end
   end

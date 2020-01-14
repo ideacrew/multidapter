@@ -8,20 +8,25 @@ RSpec.describe Multidapter::AsyncApi::Server do
     let(:contract)          { Multidapter::AsyncApi::Validators::ServerContract.new }
     let(:url)               { "amqp://example.com" }
     let(:protocol)          { :amqp }
-    let(:protocol_version)  { "0.1.0" }
+    let(:protocol_version)  { "0.9.1" }
     let(:description)       { "development environment server" }
     let(:security_scheme)   { { type: :user_password } }
 
-    let(:variables)         {  }
-    let(:bindings)          {  }
+    let(:variables)         { {
+                                port:     { default: 15672 },
+                                user:     { default: "guest" },
+                                password: { default: "guest" }
+    } }
 
-    let(:required_params) { { url: url, protocol: protocol } }
-    let(:optional_params) { {
-                              protocol_version: protocol_version,
-                              description:      description,
-                              variables:        variables,
-                              security:         security_scheme,
-                              bindings:         bindings,
+    let(:bindings)          { }
+
+    let(:required_params)   { { url: url, protocol: protocol } }
+    let(:optional_params)   { {
+                                protocol_version: protocol_version,
+                                description:      description,
+                                variables:        variables,
+                                security:         security_scheme,
+                                bindings:         bindings,
     } }
 
     let(:all_params)          { required_params.merge(optional_params) }

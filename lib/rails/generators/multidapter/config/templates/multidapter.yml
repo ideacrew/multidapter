@@ -1,0 +1,84 @@
+---
+node:
+  asyncapi: 2.0
+  info: 
+    title: <%= app_name %> API
+    description: This is a test spec node
+    contact:
+      name: IdeaCrew, Inc.
+      url: https://ideacrew.com
+      email: info@ideacrew.com
+    license:
+      name: MIT
+      url: https://opensource.org/licenses/MIT
+    version: 0.1.0
+  servers:
+    development:
+      url: 127.0.0.1
+      description: AMQP local host
+      protocol: :amqp
+      protocol_version: '0.9.1'
+      security:
+        type: :user_password
+        description: default credentials for RabbitMQ
+      variables:
+        port: 
+          default: 15672
+        user:
+          default: guest
+        password:
+          default: guest
+  channels:
+      benefit_enrollment/create:
+        publish:
+          bindings:
+            amqp:
+              expiration: 100_000
+              user_id: guest
+              cc: ['benefit_enrollment.logs']
+              priority: 10
+              delivery_mode: 2
+              mandatory: false
+              bcc: nil
+              reply_to: benefit_enrollment/created
+              timestamp: true
+              ack: false
+              binding_version: 0.2.0
+          message:
+            bindings:
+              amqp:
+                content_encoding: application/json
+                message_type: 'benefit_enrollment/create'
+                binding_version: 0.2.0
+      benefit_enrollment.created:
+        bindings:
+          amqp:
+            is: :routing_key
+            queue:
+              name: 
+              durable: true
+              exclusive: true
+              auto_delete: false
+              vhost: /
+            exchange:
+              name: ea.enroll.event
+              type: topic
+              durable: true
+              auto_delete: false
+              vhost: /
+            binding_version: 0.2.0
+      rabbit-internal-events:
+          bindings:
+            amqp:
+              is: :routing_key
+              queue:
+                name:
+              exchange:
+                name: amq.rabbitmq.event
+                type: topic
+                durable: true
+                auto_delete: false
+                vhost: /
+              binding_version: 0.2.0
+
+

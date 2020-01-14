@@ -1,10 +1,13 @@
 # frozen_string_literal: true
+
 # AsyncAPI specification
 # See: https://www.asyncapi.com/docs/specifications/2.0.0/
 
 require_relative 'external_documentation'
 require_relative 'schema'
+require_relative 'schema_format'
 require_relative 'tag'
+require_relative 'component'
 require_relative 'info'
 require_relative 'message_trait'
 require_relative 'message'
@@ -19,61 +22,31 @@ require_relative 'validators/validator'
 
 module Multidapter
   module AsyncApi
-    class AsyncApi
+    class AsyncApi < Dry::Struct
 
-      SCHEMA_FORMATS =  {
-        async_api_2_0_0:      [
-          "application/vnd.aai.asyncapi;version=2.0.0", 
-          "application/vnd.aai.asyncapi+json;version=2.0.0", 
-          "application/vnd.aai.asyncapi+yaml;version=2.0.0"
-        ],
-        open_api_3_0_0:       [
-          "application/vnd.oai.openapi;version=3.0.0", 
-          "application/vnd.oai.openapi+json;version=3.0.0", 
-          "application/vnd.oai.openapi+yaml;version=3.0.0"
-        ],
-        json_schema_draft_07: [
-          "application/schema+json;version=draft-07", 
-          "application/schema+yaml;version=draft-07"
-      ],
-        avro_1_9_0:           [
-          "application/vnd.apache.avro;version=1.9.0", 
-          "application/vnd.apache.avro+json;version=1.9.0", 
-          "application/vnd.apache.avro+yaml;version=1.9.0"
-        ],
+      # AsyncAPI spec version being used (required)
+      attribute :asyncapi,      Types::String
 
+      # identifier of the application the AsyncApi is defining
+      attribute :id,            Types::String
 
-      }
+      # metadata about the API (required)
+      attribute :info,          Info
 
-      OPTIONS_DEFAULT = {
-        # AsyncAPI spec version being used (required)
-        asyncapi:       "2.0",
+      # connection details of servers
+      attribute :servers,       Types::Array.of(Server).meta(omittable: true)
 
-        # identifier of the application the AsyncApi is defining
-        id:             'https://github.com/ideacrew/multidapter',
+      # available channels and messages for API (required)
+      attribute :channels,      Types::Array.of(Channel).meta(omittable: true)
 
-        # metadata about the API (required)
-        info:           {},
+      # container for schemas for the specification
+      attribute :components,    Types::Array.of(Component).meta(omittable: true)
 
-        # conection details of servers
-        servers:        [],
+      # list of unique tags used by spec w/additional metadata
+      attribute :tags,          Types::Array.of(Tag).meta(omittable: true)
 
-        # available channels and messages for API (required)
-        channels:       [],
-
-        # container for schemas for the specification
-        components:     [],
-
-        # list of unique tags used by spec w/additional metadata
-        tags:           [],
-
-        # additional external documentation
-        external_docs:  [],
-      }
-
-      def initialize
-
-      end
+      # additional external documentation
+      attribute :external_docs, Types::Array.of(ExternalDocumentation).meta(omittable: true)
 
 
     end
