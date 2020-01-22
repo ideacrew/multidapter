@@ -7,7 +7,7 @@ require_relative "amqp_operation_binding_schema"
 module Multidapter
   module Adapters
     module Amqp
-      module Validation
+      module Validators
         class AmqpContract < Dry::Validation::Contract
 
         end

@@ -3,8 +3,8 @@ require "spec_helper"
 
 RSpec.describe Types do
 
-  describe "Types::Amqp::ChannelType" do
-    subject(:type)            { Types::Amqp::ChannelType }
+  describe "Types::Amqp::ChannelTypes" do
+    subject(:type)            { Types::Amqp::ChannelTypes }
     let(:valid_value_key)     { :queue }
     let(:valid_value_string)  { "routing_key".freeze }
     let(:invalid_value_key)   { :silly }
@@ -22,8 +22,8 @@ RSpec.describe Types do
     end
   end
 
-  describe "Types::Amqp::ExchangeType" do
-    subject(:type)            { Types::Amqp::ExchangeType }
+  describe "Types::Amqp::ExchangeTypes" do
+    subject(:type)            { Types::Amqp::ExchangeTypes }
     let(:valid_value_key)     { :topic }
     let(:valid_value_string)  { "direct".freeze }
     let(:invalid_value_key)   { :silly }

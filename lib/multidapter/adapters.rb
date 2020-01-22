@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require "multidapter/adapters/adapter"
-require "multidapter/adapters/amqp/amqp_adapter"
-require "multidapter/adapters/http/http_adapter"
+require "multidapter/adapters/amqp/amqp"
+require "multidapter/adapters/http/http"
 
 module Multidapter
   module Adapters

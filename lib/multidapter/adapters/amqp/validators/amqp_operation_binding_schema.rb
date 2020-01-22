@@ -3,9 +3,9 @@
 module Multidapter
   module Adapters
     module Amqp
-      module Validations
+      module Validators
 
-        OperationBindingSchema = Dry::Schema.Params do
+        OperationBindingSchema = Dry::Schema.JSON do
 
           optional(:expiration).value(Types::PositiveInteger)
           optional(:user_id).maybe(:string)

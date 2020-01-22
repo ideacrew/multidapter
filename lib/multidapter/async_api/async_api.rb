@@ -5,6 +5,7 @@
 
 require_relative 'external_documentation'
 require_relative 'schema'
+require_relative 'parameter'
 require_relative 'schema_format'
 require_relative 'tag'
 require_relative 'component'
@@ -17,6 +18,7 @@ require_relative 'channel_item'
 require_relative 'channel'
 require_relative 'security_scheme'
 require_relative 'server'
+require_relative 'operations/operations'
 require_relative 'validators/validator'
 
 

@@ -1,6 +1,6 @@
 module Multidapter
   module Adapters
-    class HttpAdapter < Multidapter::Adapters::Adapter
+    module Http
 
         def initialize(adapter)
           @adapter = adapter

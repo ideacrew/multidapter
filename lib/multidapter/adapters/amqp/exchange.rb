@@ -3,7 +3,7 @@
 module Multidapter
   module Adapters
     module Amqp
-      class Exchange < Multidapter::Endpoint
+      class Exchange
 
         EXCHANGE_KINDS = [
           :topic,
@@ -16,7 +16,7 @@ module Multidapter
           auto_delete: false,
         }
 
-        attr_reader :name, OPTION_DEFAULTS.keys #:vhost, :durable, :kind, :exclusive, :auto_delete
+        # attr_reader :name, OPTION_DEFAULTS.keys #:vhost, :durable, :kind, :exclusive, :auto_delete
 
         def self.call(name, options = {})
           new(uri, options).connection

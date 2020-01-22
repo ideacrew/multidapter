@@ -3,6 +3,7 @@
 module Multidapter
   module AsyncApi
     module Validators
+      # SecuritySchemeSchema = Dry::Schema.Params do
       SecuritySchemeSchema = Dry::Schema.Params do
 
         required(:type).value(Types::SecuritySchemeType)

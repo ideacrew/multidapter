@@ -6,14 +6,8 @@ module Multidapter
   module AsyncApi
     class Channel < Dry::Struct
 
-      # A relative path to an individual channel. The field name MUST be in the form of a 
-      # RFC 6570 URI template. Query parameters and fragments SHALL NOT be used, instead 
-      # use bindings to define them
-      attribute :path, Types::String
-
-      # Describes the operations available on a single channel
-      attribute :channel, Multidapter::AsyncApi::ChannelItem
-
+      attribute :id, Types::String
+      attribute :channel_items, Types::Array.of(Multidapter::AsyncApi::ChannelItem).meta(omittable: true) 
     end
   end
 end

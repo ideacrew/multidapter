@@ -3,9 +3,9 @@
 module Multidapter
   module Adapters
     module Amqp
-      module Validations
+      module Validators
 
-        class AmqpServerContract
+        class AmqpServerObjectContract
           extend Multidapter::AsyncApi::Validators::ServerContract
 
           # AsyncApi v2.0 Amqp Server Bindings must be nil

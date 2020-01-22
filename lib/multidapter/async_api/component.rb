@@ -2,7 +2,11 @@
 
 module Multidapter
   module AsyncApi
-    class Component
+    class Component < Dry::Struct
+
+      attribute :field_name, Types::ComponentTypes
+      # attribute :component, Types::Hash do
+      # end
 
     end
   end

@@ -2,7 +2,7 @@
 
 module Multidapter
   module AsyncApi
-    class Server < Dry::Struct
+    class ServerObject < Dry::Struct
 
         # URL to the target host. Variable substitutions will be made when a variable is 
         # named in {brackets}. (required)

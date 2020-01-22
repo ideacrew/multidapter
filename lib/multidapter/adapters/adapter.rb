@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# The Adapter class defines the common interface that all adapters must support
+# 
+
 module Multidapter
   module Adapters
     class Adapter
@@ -8,19 +11,9 @@ module Multidapter
         new(uri, options).connection
       end
 
-      attr_reader :uri, :protocol, :protcol_versions, :options
+      attr_reader :uri, :protocol, :protocol_versions, :connection
 
-      def initialize(uri, options = {})
-        @connection       = nil
-        @active           = false
-
-        @servers          = []
-        @channels         = []
-        @components       = []
-        @tags             = []
-        @external_docs    = []
-
-        @options = OPTION_DEFAULTS.merge(options)
+      def initialize(server, options = {})
       end
 
       def name
@@ -57,23 +50,26 @@ module Multidapter
       def reconnect
       end
 
-
-      def self.add_server(new_server)
-        @servers << new_server
+      def test_conection
       end
 
-      def self.servers
-        @servers
-      end
+      class << self
+        def add_server(new_server)
+          @servers << new_server
+        end
 
-      def self.add_adapter(new_adapter)
-        @adapters << new_adapter
-      end
+        def servers
+          @servers
+        end
 
-      def self.adapters
-        @adapters
-      end
+        def add_adapter(new_adapter)
+          @adapters << new_adapter
+        end
 
+        def adapters
+          @adapters
+        end
+      end
 
       def logger(msg)
         @debug_output << msg + "\n" if @debug_output

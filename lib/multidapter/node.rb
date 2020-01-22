@@ -7,5 +7,13 @@ module Multidapter
       asyncapi: "2.0",
     }
 
+    def initialize(application_id)
+      @servers          = []
+      @channels         = []
+      @components       = []
+      @tags             = []
+      @external_docs    = []
+    end
+
   end
 end

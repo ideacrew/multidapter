@@ -37,4 +37,22 @@ RSpec.describe Types do
     end
   end
 
+  describe "Types::SecuritySchemeType" do
+    subject(:type)            { Types::SecuritySchemeType }
+    let(:valid_value)         { :symmetric_encryption }
+    let(:invalid_value)       { :unsecure }
+    let(:valid_value_string)  { "x509".freeze }
+
+    it 'a correct value is valid' do
+      expect(type[valid_value]).to be_truthy
+    end
+
+    it 'an incorrect value is not valid' do
+      expect{type[invalid_value]}.to raise_error Dry::Types::ConstraintError
+    end
+
+    it 'coerces a correct value string type to integer type' do
+      expect(type[valid_value_string]).to be_truthy
+    end
+  end
 end

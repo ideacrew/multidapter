@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+require 'bunny'
 
 module Multidapter
   module Adapters
     module Amqp
-      class AmqpChannel < Multidapter::AsyncApi::Channel
+      class AmqpChannel < Multidapter::Adapters::Channel
 
         KINDS = [
           :queue,       # Queue
@@ -11,14 +12,18 @@ module Multidapter
         ]
 
         BINDING_OPTION_DEFAULTS = {
-          is: nil,
+          kind: nil,
+          binding_version: '0.1.0'.freeze
+        }
+
+        BINDING_OPTION_DEFAULTS = {
           protocol: :amqp,
-          binding_version: '0.1.0'.freeze,
+          binding_version: "0.1.0",
 
           user_id: nil,       # Sender
           cc: ['user.logs'],            # message routing keys
           bcc: [],
-          reply_to: 'user.signedup',      # name of queue where consumer should send response
+          reply_to: user.signedup,      # name of queue where consumer should send response
 
           expiration: 100_000, # TTL
           priority: 10,

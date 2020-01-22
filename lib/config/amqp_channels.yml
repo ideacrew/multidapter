@@ -24,7 +24,7 @@ channels:
   user/signedup:
     bindings:
       amqp:
-        is: routingKey
+        is: :routing_key
         queue:
           name: my-queue-name
           durable: true

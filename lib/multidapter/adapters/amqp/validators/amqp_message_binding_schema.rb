@@ -4,9 +4,9 @@
 module Multidapter
   module Adapters
     module Amqp
-      module Validations
+      module Validators
         
-        AmqpMessageBindingSchema = Dry::Schema.Params do
+        AmqpMessageBindingSchema = Dry::Schema.JSON do
           # MIME encoding for the message content.
           optional(:content_encoding).maybe(:string)
 

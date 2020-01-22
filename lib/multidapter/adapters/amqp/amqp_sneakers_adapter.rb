@@ -2,7 +2,10 @@
 module Multidapter
   module Adapters
     module Amqp
-      class AmqpServer < Multidapter::AsyncApi::Server
+      class AmqpSneakersAdapter
+
+
+
 
       end
     end
