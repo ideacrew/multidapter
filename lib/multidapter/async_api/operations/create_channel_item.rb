@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Multidapter
   module AsyncApi
     module Operations
@@ -19,7 +21,7 @@ module Multidapter
 
         def create_channel_item(channel_values)
           # returns Success(channel) or Failure(:channel_not_created)
-          channel = Multidapter::AsyncApi::ChannelItem.new(channel_values.values.to_h)
+          channel = Multidapter::AsyncApi::ChannelItem.new(channel_values.to_h)
           Success(channel)
         end
       end

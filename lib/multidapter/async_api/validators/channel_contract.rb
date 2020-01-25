@@ -7,18 +7,9 @@ module Multidapter
       class ChannelContract < Dry::Validation::Contract
 
         params do
-          required(:id).value(:string)
-          # optional(:channel_items).hash do
-            optional(:subscribe).value(:hash)
-            optional(:publish).value(:hash)
-          # end
+          required(:channel_id).value(:string)
+          optional(:channel_item).value(:hash)
         end
-
-        # rule(:bindings) do
-        #   if key?
-
-        #   end
-        # end
 
       end
     end

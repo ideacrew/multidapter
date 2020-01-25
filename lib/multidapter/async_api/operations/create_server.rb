@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Multidapter
   module AsyncApi
     module Operations
@@ -6,7 +8,7 @@ module Multidapter
 
         def call(params)
           values  = yield validate(params)
-          server = yield create_server(values.to_h)
+          server = yield create_server(values)
 
           Success(server)
         end
@@ -19,7 +21,7 @@ module Multidapter
 
         def create_server(server_values)
           # returns Success(server) or Failure(:server_not_created)
-          server = Multidapter::AsyncApi::Server.new(server_values)
+          server = Multidapter::AsyncApi::Server.new(server_values.to_h)
           Success(server)
         end
       end

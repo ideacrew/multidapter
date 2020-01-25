@@ -6,8 +6,8 @@ module Multidapter
   module AsyncApi
     class Channel < Dry::Struct
 
-      attribute :id, Types::String
-      attribute :channel_items, Types::Array.of(Multidapter::AsyncApi::ChannelItem).meta(omittable: true) 
+      attribute :channel_id,    Types::String
+      attribute :channel_item,  Multidapter::AsyncApi::ChannelItem.meta(omittable: true) 
     end
   end
 end

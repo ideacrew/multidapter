@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 
 RSpec.describe Multidapter::AsyncApi::Validators::ChannelItemContract do
@@ -36,6 +37,7 @@ RSpec.describe Multidapter::AsyncApi::Validators::ChannelItemContract do
                                    description:  description,
                                    parameters:   parameters,
                                    bindings:     bindings,
+                                   subscribe:    subscribe,
   } }
 
   context "Given invalid parameters" do

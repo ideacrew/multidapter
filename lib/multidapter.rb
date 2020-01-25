@@ -24,15 +24,16 @@ require "multidapter/message"
 
 module Multidapter
 
-  module ClassMethods
-
-    def generate_uuid
+    def self.generate_uuid
       SecureRandom.uuid
     end
 
-    def generate_id
+    def self.generate_id
       generate_uuid
     end
+
+
+  module ClassMethods
 
     # Turn on logging
     #   class Foo
