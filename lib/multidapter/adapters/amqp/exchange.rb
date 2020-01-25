@@ -3,39 +3,22 @@
 module Multidapter
   module Adapters
     module Amqp
-      class Exchange
+      class Exchange < Dry::Struct
 
-        EXCHANGE_KINDS = [
-          :topic,
-        ]
+          #   The name of the exchange. It MUST NOT exceed 255 characters long.
+          attribute :name,        Types::Coercible::String
 
-        OPTION_DEFAULTS = {
-          vhost: '/',
-          kind: :topic,
-          durable: true,
-          auto_delete: false,
-        }
+          # The type of the exchange. Can be either topic, direct, fanout, default or headers.
+          attribute :type,        Types::Amqp::ExchangeTypes
 
-        # attr_reader :name, OPTION_DEFAULTS.keys #:vhost, :durable, :kind, :exclusive, :auto_delete
+          # Whether the exchange should survive broker restarts or not.
+          attribute :durable,     Types::Bool
 
-        def self.call(name, options = {})
-          new(uri, options).connection
-        end
+          # Whether the exchange should be deleted when the last queue is unbound from it.
+          attribute :auto_delete, Types::Bool
 
-        def initialize(name, options = {})
-          @name = name
-
-          @options = OPTION_DEFAULTS.merge(options)
-          @vhost        = options[:vhost]
-          @kind         = options[:kind]
-          @durable      = options[:durable]
-          @auto_delete  = options[:auto_delete]
-        end
-        
-
-        def publish(message)
-          
-        end
+          # The virtual host of the exchange. Defaults to "/"
+          attribute :vhost,       Types::Coercible::String
 
       end
     end

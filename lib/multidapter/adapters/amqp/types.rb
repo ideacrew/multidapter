@@ -12,7 +12,6 @@ module Types
       QueueName           = ::Types::Coercible::String
 
   # PatternedFieldName  = String.constrained(format: /^[A-Za-z0-9_\-]+$/)
-  
 
   end
 end

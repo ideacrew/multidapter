@@ -6,13 +6,15 @@ require_relative 'types'
 require_relative 'validators/validators'
 require_relative 'amqp_bunny_adapter'
 require_relative 'operations/operation'
+require_relative 'amqp_message_binding'
+require_relative 'amqp_operation_binding'
 require_relative 'amqp_channel_binding'
 
 # Create a level of indirection for AMQP to support multiple clients, namely
 # Bunny and Sneakers
 
 module Multidapter
-  module Adapters
+  module Adapters 
     module Amqp
 
       PROTOCOL    = :amqp

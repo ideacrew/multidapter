@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "amqp_channel_binding_schema"
-require_relative "amqp_operation_binding_schema"
-require_relative "amqp_operation_binding_schema"
+require_relative "amqp_channel_binding_contract"
+require_relative "amqp_operation_binding_contract"
+require_relative "amqp_message_binding_contract"
 
 module Multidapter
   module Adapters

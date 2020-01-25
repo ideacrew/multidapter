@@ -17,7 +17,7 @@ module Multidapter
 
         rule(:subscribe) do
           if values.keys.include?(:publish)
-            key.failure('inavlid channel_item: :subscribe and :publish operations not allowed in same instance')
+            key.failure('invalid channel_item: :subscribe and :publish operations not allowed in same instance')
           end
         end
 

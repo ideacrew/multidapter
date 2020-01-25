@@ -43,7 +43,7 @@ RSpec.describe Multidapter::AsyncApi::Validators::ChannelItemContract do
   context "Given invalid parameters" do
     context "Subscribe and Publish operations are both in same ChannelItem" do
       let(:params)        { common_params.merge(subscribe_operation).merge(publish_operation)}
-      let(:error_message) { {:subscribe=>["inavlid channel_item: :subscribe and :publish operations not allowed in same instance"]} }
+      let(:error_message) { {:subscribe=>["invalid channel_item: :subscribe and :publish operations not allowed in same instance"]} }
 
       it { expect(subject.call(params).failure?).to be_truthy }
       it { expect(subject.call(params).errors.to_h).to eq error_message }
