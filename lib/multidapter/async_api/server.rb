@@ -21,11 +21,11 @@ module Multidapter
 
         # A map between a variable name and its value. The value is used for substitution in the 
         # server’s URL template.
-        attribute :variables,         Types::Array.of(Multidapter::AsyncApi::ServerVariable).meta(omittable: true)
+        attribute :variables,         Types::Array.of(Multidapter::AsyncApi::Variable).meta(omittable: true)
 
         # A declaration of which security mechanisms can be used with this server
         attribute :security,          Multidapter::AsyncApi::SecurityScheme.meta(omittable: true)
-
+        
         # A free-form map where the keys describe the name of the protocol and the values describe 
         # protocol-specific definitions for the server
         attribute :bindings,          Multidapter::AsyncApi::ServerBinding.meta(omittable: true)

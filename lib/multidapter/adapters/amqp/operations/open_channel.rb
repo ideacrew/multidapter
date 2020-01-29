@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 module Multidapter
-  module AsyncApi
-    module Operations
-      class CreateChannel
+  module Adapters
+    module Amqp
+      module Operations
+        class OpenChannel
         include Dry::Monads[:result, :do]
 
         def call(params)
           values  = yield validate(params)
-          channel = yield create_channel(values)
+          channel = yield open_channel(values)
 
           Success(channel)
         end
@@ -19,12 +20,17 @@ module Multidapter
           Success(contract.call(params))
         end
 
-        def create_channel(channel_values)
+        def open_channel(channel_values)
           # returns Success(channel) or Failure(:channel_not_created)
           channel = Multidapter::AsyncApi::Channel.new(channel_values.to_h)
           Success(channel)
         end
       end
+
+      end
     end
   end
 end
+
+
+add_channel.rb

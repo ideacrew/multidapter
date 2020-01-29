@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-RSpec.describe Multidapter::AsyncApi::Operations::CreateChannel do
+RSpec.describe Multidapter::AsyncApi::Operations::OpenChannel do
 
   let(:channel_id)          { "user_enrollments" }
   let(:channel_item)        { { subscribe: { summary: 'A customer enrolled' } } }

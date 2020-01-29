@@ -55,8 +55,8 @@ Node.configure() do |conf|
 
   conf.channels = []
 
-  log_channel   = connection_adapter.create_channel(log_producer_channel)
-  smtp_channel  = connection_adapter.create_channel(smtp_producer_channel)
+  log_channel   = connection_adapter.open_channel(log_producer_channel)
+  smtp_channel  = connection_adapter.open_channel(smtp_producer_channel)
 end
 ```
 
@@ -66,7 +66,7 @@ end
 my_uri = URI("amqp://guest:guest@vm188.dev.megacorp.com/profitd.qa")
 
 amqp_conn     = Multidapter::Server.connect
-log_channel   = amqp_conn.create_channel()
+log_channel   = amqp_conn.open_channel()
 log_messageq  = log_channel.build_message()
 result        = log_message.post()
 
@@ -86,11 +86,11 @@ amqp_conn.close
 amqp_server_binding_options = {}
 amqp_server = Multidapter::Server.add(amqp_server_url, amqp_server_binding_options)
 Multidapter::Server.connect(amqp_server_url, amqp_server_binding_options) do |amqp_conn|
-  event_publish_channel     = amqp_conn.create_channel(event_producer_channel_def)
-  event_subscribe_channel   = amqp_conn.create_channel(event_consumer_channel_def)
+  event_publish_channel     = amqp_conn.open_channel(event_producer_channel_def)
+  event_subscribe_channel   = amqp_conn.open_channel(event_consumer_channel_def)
 
-  service_client_channel    = amqp_conn.create_channel(consumer_listener_channel_def)
-  service_reply_to_channel  = amqp_conn.create_channel(producer_reply_to_channel_def)
+  service_client_channel    = amqp_conn.open_channel(consumer_listener_channel_def)
+  service_reply_to_channel  = amqp_conn.open_channel(producer_reply_to_channel_def)
 
   enrollment_event_message.create() do |message|
     message.content_type  = "application/json"
@@ -130,7 +130,7 @@ end
 
       consumer_connection.add_channel(endpoint, channel_options)
 
-    event_channel = connection.create_channel(:enterprise_events)
+    event_channel = connection.open_channel(:enterprise_events)
     event_channel.post_message()
     event_channel.schedule_message()
     event_channel.retrieve_message()

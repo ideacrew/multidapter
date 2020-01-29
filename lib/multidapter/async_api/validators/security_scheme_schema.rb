@@ -3,7 +3,6 @@
 module Multidapter
   module AsyncApi
     module Validators
-      # SecuritySchemeSchema = Dry::Schema.Params do
       SecuritySchemeSchema = Dry::Schema.Params do
 
         required(:type).value(Types::SecuritySchemeType)
@@ -12,7 +11,7 @@ module Multidapter
         optional(:in).maybe(:symbol)
         optional(:scheme).maybe(:string)
         optional(:bearer_format).maybe(:string)
-        optional(:open_id_connect_url).maybe(Types::Url)
+        optional(:open_id_connect_url).maybe(Types::URL)
         optional(:flows).maybe(:hash)
 
 

@@ -9,7 +9,7 @@ module Multidapter
       attribute :enum,        Types::Array.of(String).meta(omittable: true)
 
       # The default value to use for substitution, and to send, if an alternate value is not supplied
-      attribute :default,     Types::String.meta(ommittable: true)
+      attribute :default,     Types::Coercible::String.meta(ommittable: true)
 
       # An optional description for the server variable. CommonMark syntax MAY be used for rich text representation
       attribute :description, Types::String.meta(ommittable: true)

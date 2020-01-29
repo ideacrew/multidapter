@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-RSpec.describe Multidapter::AsyncApi::Validators::SecuritySchemeSchema do
+RSpec.describe Multidapter::AsyncApi::Validators::SecuritySchemeContract do
 
   let(:type)                { :user_password }
   let(:description)         { "Simple username/password" }
