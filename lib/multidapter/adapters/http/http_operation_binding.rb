@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Multidapter
-  module Adapaters
+  module Adapters
     module Http
       class HttpOperationBinding < Dry::Struct
 
@@ -14,7 +14,7 @@ module Multidapter
 
         # A Schema object containing the definitions for each query parameter.
         # This schema MUST be of type object and have a properties key.
-        attribute :query , Multidapter::AsyncApi::Schema
+        attribute :query, Multidapter::AsyncApi::Schema
 
         # Publish, Subscribe  The version of this binding. If omitted, "latest" MUST be assumed
         attribute :binding_version, Types::String
