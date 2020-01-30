@@ -1,8 +1,6 @@
 # Multidapter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/multidapter`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The Multidapter gem's purpose is to simplify the task of connecting and exchanging data between systems by providing a single, uniform interface for developers to access and use various network protcols.  Multidapter's structure is based on the [AsyncAPI specification 2.0.0](https://www.asyncapi.com/docs/specifications/2.0.0/) and it uses a consistent command/event pattern for managing servers, connections and message exchange.  Using configuration options, applications can quickly and securely access network endpoints and establish communications between services.
 
 ## Installation
 
@@ -23,6 +21,12 @@ Or install it yourself as:
 ## Usage
 
 ### Overview
+
+Microservices, Service Oriented Architecture (SOA) and other modern technology designs are predicated on building independent services that connect and exchange information over the network.  How to go about enabling this core service-to-service communication however leads to the system architect's dirty secret: key data message exchange strategies are enabled or blocked by this decision.  And because nearly every system component depends upon the shared messaging framework, this choice is a significant factor for system performance, system reliability and ultimately development and operation costs.  
+
+Orchestration and Choreography are the two principle data message exchange strategies.  Like a conductor leading a group of musicians, the Orchestration model uses a central service to route, sequence and exchange messages between services.  Mulesoft, Apache Camel and other Enterprise Service Bus (ESB) solutions are examples of Orchestration brokers.  The Choreography strategy is a distributed model, more like independent dancers who follow routines and coordinate with one another to complete their tasks.  Each approach has its associated pros and cons.
+
+Multidapter is designed to support both strategies.  By turning the model on its head and embueing the distributed services with a configurable, protocol-agnostic way to exchange messages, developers may use existing protocols to integrate legacy systems and others to support new components, switching methods as circumstances change.
 
 #### AMQP Example
 1. Create node for application

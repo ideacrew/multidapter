@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # encoding: utf-8
 
-module Mulltidapter
+module Multidapter
   module Config
 
     # Encapsulates logic for setting options.
@@ -10,7 +10,7 @@ module Mulltidapter
       # Get the defaults or initialize a new empty hash.
       #
       # @example Get the defaults.
-      #   options.defaults
+      #   Options.defaults
       #
       # @return [ Hash ] The default options.
       def defaults
@@ -47,7 +47,7 @@ module Mulltidapter
       # Reset the configuration options to the defaults.
       #
       # @example Reset the configuration options.
-      #   config.reset
+      #   Config.reset
       #
       # @return [ Hash ] The defaults.
       def reset
@@ -57,7 +57,7 @@ module Mulltidapter
       # Get the settings or initialize a new empty hash.
       #
       # @example Get the settings.
-      #   options.settings
+      #   Options.settings
       #
       # @return [ Hash ] The setting options.
       def settings
@@ -67,7 +67,7 @@ module Mulltidapter
       # Get the log level.
       #
       # @example Get the log level.
-      #   config.log_level
+      #   Config.log_level
       #
       # @return [ Integer ] The log level.
       def log_level

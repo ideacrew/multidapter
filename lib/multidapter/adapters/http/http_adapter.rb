@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Multidapter
   module Adapters
     class HttpAdapter < Multidapter::Adapters::Adapter

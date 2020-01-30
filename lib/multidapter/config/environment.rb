@@ -8,42 +8,34 @@ module Multidapter
     module Environment
       extend self
 
-      # Get the name of the environment that Mongoid is running under.
+      # Get the name of the environment that Multidapter is running under.
       #
       # Uses the following sources in order:
       # - If +::Rails+ is defined, +Rails.env+.
-      # - If +::Sinatra+ is defined, +Sinatra::Base.environment+.
       # - +RACK_ENV+
-      # - +MONGOID_ENV*
+      # - +MULTIDAPTER_ENV+
+      #
+      # @return [ String ] The name of the current environment.
       #
       # @example Get the env name.
       #   Environment.env_name
       #
       # @raise [ Errors::NoEnvironment ] If environment name cannot be
       #   determined because none of the sources was set.
-      #
-      # @return [ String ] The name of the current environment.
       def env_name
-        if defined?(::Rails)
-          return ::Rails.env
-        end
-        ENV["RACK_ENV"] || ENV["MONGOID_ENV"] or raise Errors::NoEnvironment
+        return ::Rails.env if defined?(::Rails)
+        ENV["RACK_ENV"] || ENV["Multidapter_ENV"] or raise Errors::NoEnvironment
       end
 
       # Load the yaml from the provided path and return the settings for the
-      # specified environment, or for the current Mongoid environment.
-      #
-      # @example Load the yaml.
-      #   Environment.load_yaml("/work/mongoid.yml")
-      #
+      # specified environment, or for the current Multidapter environment.
       # @param [ String ] path The location of the file.
       # @param [ String | Symbol ] environment Optional environment name to
-      #   override the current Mongoid environment.
-      #
+      #   override the current Multidapter environment.
       # @return [ Hash ] The settings.
-      #
-      # @since 2.3.0
-      # @api private
+      # 
+      # @example Load the yaml.
+      #   Environment.load_yaml("/work/multidapter.yml")
       def load_yaml(path, environment = nil)
         env = environment ? environment.to_s : env_name
         YAML.load(ERB.new(File.new(path).read).result)[env]

@@ -5,8 +5,18 @@ module Multidapter
   module AsyncApi
     module Validators
 
+      # Schema and validation rules for {Multidapter::AsyncApi::Server}
       class ServerContract < Dry::Validation::Contract
 
+        # @!method call(Hash) 
+        #   @param [String] url (required)
+        #   @param [Symbol] protocol (required)
+        #   @param [Types::StringOrNil] protocol_version (optional)
+        #   @param [Types::StringOrNil] description (optional)
+        #   @param [Array<Types::StringOrNil>] variables (optional)
+        #   @param [Types::HashOrNil] security (optional)
+        #   @param [Types::HashOrNil] bindings (optional)
+        #   @return [Dry::Monads::Result::Success, Dry::Monads::Result::Failure]
         params do
           required(:url).value(:string)
           required(:protocol).value(:symbol)

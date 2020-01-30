@@ -4,8 +4,17 @@ module Multidapter
   module AsyncApi
     module Validators
 
+      # Schema and validation rules for {Multidapter::AsyncApi::ChannelItem}
       class ChannelItemContract < Dry::Validation::Contract
 
+        # @!method call(Hash)
+        #   @param [String] ref (optional)
+        #   @param [Hash] subscribe (optional)
+        #   @param [Hash] publish (optional)
+        #   @param [String] description (optional)
+        #   @param [Types::HashOrNil] parameters (optional)
+        #   @param [Hash] bindings (optional)
+        #   @return [Dry::Monads::Result::Success, Dry::Monads::Result::Failure]
         params do
           optional(:ref).value(:string)
           optional(:subscribe).value(:hash)

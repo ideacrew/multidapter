@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# Validate passed parameters and construct a Server object
-
 module Multidapter
   module AsyncApi
     module Operations
+
+      # Validate passed parameters and construct an AsyncApi Server object
       class CreateServer
         include Dry::Monads[:result, :do]
 

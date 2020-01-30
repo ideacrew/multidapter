@@ -5,12 +5,16 @@ module Multidapter
   module AsyncApi
     class ExternalDocumentation < Dry::Struct
 
+      # @!attribute [r] description
       # short description for the target documentation. CommonMark syntax can be used for
       # rich text representation
-      attribute :description,    Types::String
+      # @return [String]
+      attribute :description, Types::String
 
+      # @!attribute [r] url
       # URL for the target documentation
-      attribute :url,  Types::String
+      # @return [Types::Url]
+      attribute :url,         Types::Url
 
     end
   end
