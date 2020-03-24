@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'uri'
-require 'cgi'
+# require 'cgi'
 require 'dry-types'
 
 module Types
@@ -10,7 +10,7 @@ module Types
   # URI                 = Coercible::String.constrained(format: /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/)
   # URI                 = Coercible::String.constructor(->(val){ ::URI::parse(val) })
   # URI                 = Types.Constructor(URI) { |value| ::URI::parse(value) }
-  Uri                 = Types.Constructor(::URI) { |val| ::URI.parse(val) }
+  Uri                 = Types.Constructor(::URI) { |val| (val.is_a? URI) ? val : ::URI.parse(val) }
   Url                 = Uri
 
   # URL   = String.constrained(format: //)
