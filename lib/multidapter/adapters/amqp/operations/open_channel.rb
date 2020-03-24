@@ -16,13 +16,13 @@ module Multidapter
 
         def validate(params)
           # returns Success(values) or Failure(:invalid_data)
-          contract = Multidapter::AsyncApi::Validators::ChannelContract.new
+          contract = Multidapter::Validators::ChannelContract.new
           Success(contract.call(params))
         end
 
         def open_channel(channel_values)
           # returns Success(channel) or Failure(:channel_not_created)
-          channel = Multidapter::AsyncApi::Channel.new(channel_values.to_h)
+          channel = Multidapter::Channel.new(channel_values.to_h)
           Success(channel)
         end
       end

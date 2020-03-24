@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-RSpec.describe Multidapter::Adapters::Amqp::Operations::Active do
+RSpec.describe Multidapter::Operations::Adapters::Active do
 
   let(:url)               { "amqp://127.0.0.1" }
   let(:protocol)          { :amqp }
@@ -27,15 +27,15 @@ RSpec.describe Multidapter::Adapters::Amqp::Operations::Active do
 
       expect(result.success?).to be_truthy
       expect(result.value!.first).to be_a Bunny::Session
-      expect(Multidapter::Adapters::Amqp::Operations::Active.call(result.value!.first)).to be_truthy
-      expect(result.value!.last.value!).to be_a Multidapter::AsyncApi::Server
+      expect(Multidapter::Operations::Adapters::Active.call(result.value!.first)).to be_truthy
+      expect(result.value!.last.value!).to be_a Multidapter::Server
     end
   end
 
   # context "sending required parameters " do
 
   #   it "should create new Server instance" do
-  #     expect(subject.call(required_params).success).to be_truthy.and be_a(Multidapter::AsyncApi::Server)
+  #     expect(subject.call(required_params).success).to be_truthy.and be_a(Multidapter::Server)
   #   end
 
   #   it "should have attributes that match input params" do
@@ -49,7 +49,7 @@ RSpec.describe Multidapter::Adapters::Amqp::Operations::Active do
   # context "sending required parameters " do
 
   #   it "should should create new Server instance" do
-  #     expect(subject.call(all_params).success).to be_truthy.and be_a(Multidapter::AsyncApi::Server)
+  #     expect(subject.call(all_params).success).to be_truthy.and be_a(Multidapter::Server)
   #   end
 
   #   it "should have attributes that match input params" do

@@ -1,106 +1,102 @@
+# frozen_string_literal: true
+
 module Multidapter
-  module Message
-    def self.included(cls)
-      cls.class_exec do
-        include Schema::DataStructure
 
-        extend Info
-        extend Build
-        extend Copy
-        extend Follow
-        extend Correlate
+  # Describes a message received on a given channel and operation
+  class Message < Dry::Struct
 
-        const_set :Transform, Transform
+    # @!attribute [r] headers
+    # Schema definition of the application headers. Schema MUST be of type “object”.
+    # It MUST NOT define the protocol headers.
+    # @return [Multidapter::Schema]
+    attribute :headers, Multidapter::Schema
 
-        attribute :id, String
-        attribute :metadata, Metadata, default: -> { Metadata.new }
+    # @!attribute [r] payload
+    # Definition of the message payload. It can be of any type but defaults to Schema object
+    # @return [Types::Any]
+    attribute :payload, Types::Any
 
-        def self.transient_attributes
-          [
-            :id,
-            :metadata
-          ]
-        end
-      end
+    # @!attribute [r] correlation_id
+    # Definition of the correlation ID used for message tracing or matching
+    # @return [String]
+    attribute :correlation_id do
+
+      # @!attribute [r] description
+      # An optional description of the identifier.
+      # CommonMark syntax can be used for rich text representation
+      # @return [String]
+      attribute :description, Types::String
+
+      # @!attribute [r] location
+      # Required. A runtime expression that specifies the location of the correlation ID
+      # @return [String]
+      attribute :location,    Types::String
     end
 
-    def message_type
-      self.class.message_type
-    end
+    # @!attribute [r] schema_format
+    # A string containing the name of the schema format used to define the message payload.
+    # If omitted, implementations should parse the payload as a Schema object. Check out the
+    # supported schema formats table for more information. Custom values are allowed but
+    # their implementation is OPTIONAL. A custom value MUST NOT refer to one of the schema formats
+    # listed in the table.
+    # @return [String]
+    attribute :schema_format, Types::String
 
-    def message_name
-      self.class.message_name
-    end
+    # @!attribute [r] content_type
+    # The content type to use when encoding/decoding a message’s payload. The value MUST be a
+    # specific media type (e.g. application/json). When omitted, the value MUST be the one specified
+    # on the default_content_type field
+    # @return [String]
+    attribute :content_type,  Types::String
 
-    def follows?(other_message)
-      metadata.follows?(other_message.metadata)
-    end
+    # @!attribute [r] name
+    # A machine-friendly name for the message
+    # @return [String]
+    attribute :name,          Types::String
 
-    module Info
-      extend self
+    # @!attribute [r] title
+    # A human-friendly title for the message
+    # @return [String]
+    attribute :title,         Types::String
 
-      def message_type(msg=self)
-        Info.class_name(msg).split('::').last
-      end
+    # @!attribute [r] summary
+    # A short summary of what the message is about
+    # @return [String]
+    attribute :summary,       Types::String
 
-      def message_type?(type)
-        message_type == type
-      end
+    # @!attribute [r] description
+    # A verbose explanation of the message. CommonMark syntax can be used for rich text representation
+    # @return [String]
+    attribute :description,   Types::String
 
-      def message_name(msg=self)
-        Info.canonize_name(message_type(msg))
-      end
+    # @!attribute [r] tags
+    # A list of tags for API documentation control. Tags can be used for logical grouping of messages
+    # @return [Array<Multidapter::Tag>]
+    attribute :tags,          Types::Array.of(Multidapter::Tag).meta(omittable: true)
 
-      def self.canonize_name(name)
-        name.gsub(/([^\^])([A-Z])/,'\1_\2').downcase
-      end
+    # @!attribute [r] description
+    # Additional external documentation for this message
+    # @return [Multidapter::ExternalDocumentation]
+    attribute :external_docs, Multidapter::ExternalDocumentation
 
-      def self.class_name(message)
-        class_name = nil
-        class_name = message if message.instance_of? String
-        class_name ||= message.name if message.instance_of? Class
-        class_name ||= message.class.name
-        class_name
-      end
-    end
+    # @!attribute [r] bindings
+    # Map where the keys describe the name of the protocol and the values describe protocol-specific
+    # definitions for the message
+    # @return [Hash]
+    attribute :bindings,      Types::Hash
 
-    module Build
-      def build(data=nil, metadata=nil)
-        data ||= {}
-        metadata ||= {}
+    # @!attribute [r] examples
+    # An array with examples of valid message objects
+    # @return [Hash]
+    attribute :examples,      Types::Array.of(Hash)
 
-        metadata = build_metadata(metadata)
+    # @!attribute [r] traits
+    # A list of traits to apply to the message object. Traits MUST be merged into the message object
+    # using the JSON Merge Patch algorithm in the same order they are defined here. The resulting
+    # object MUST be a valid Message Object
+    # @return [Array<Multidapter::MessageTrait>]
+    attribute :traits,        Types::Array.of(Multidapter::MessageTrait)
 
-        new.tap do |instance|
-          # Needed because Schema::DataStructure classes are expected
-          # to support this protocol, but Message overrides build
-          instance.transform_read(data)
-          #
 
-          set_attributes(instance, data)
-          instance.metadata = metadata
-        end
-      end
-
-      def set_attributes(instance, data)
-        SetAttributes.(instance, data)
-      end
-
-      def build_metadata(metadata)
-        if metadata.nil?
-          Metadata.new
-        else
-          Metadata.build(metadata.to_h)
-        end
-      end
-    end
-
-    module Correlate
-      def correlate(correlation_stream_name)
-        instance = build
-        instance.metadata.correlation_stream_name = correlation_stream_name
-        instance
-      end
-    end
   end
 end

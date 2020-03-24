@@ -1,6 +1,6 @@
 # Multidapter
 
-The Multidapter gem's purpose is to simplify the task of connecting and exchanging data between systems by providing a single, uniform interface for developers to access and use various network protcols.  Multidapter's structure is based on the [AsyncAPI specification 2.0.0](https://www.asyncapi.com/docs/specifications/2.0.0/) and it uses a consistent command/event pattern for managing servers, connections and message exchange.  Using configuration options, applications can quickly and securely access network endpoints and establish communications between services.
+The Multidapter gem's purpose is to simplify the task of connecting and exchanging data between systems by providing a single, uniform interface for developers to access and use various network protocols.  Multidapter's structure is based on the [AsyncAPI specification 2.0.0](https://www.asyncapi.com/docs/specifications/2.0.0/) and it uses a consistent command/event pattern for managing servers, connections and message exchange.  Using configuration options, applications can quickly and securely access network endpoints and establish communications between services.
 
 ## Installation
 
@@ -27,6 +27,15 @@ Microservices, Service Oriented Architecture (SOA) and other modern technology d
 Orchestration and Choreography are the two principle data message exchange strategies.  Like a conductor leading a group of musicians, the Orchestration model uses a central service to route, sequence and exchange messages between services.  Mulesoft, Apache Camel and other Enterprise Service Bus (ESB) solutions are examples of Orchestration brokers.  The Choreography strategy is a distributed model, more like independent dancers who follow routines and coordinate with one another to complete their tasks.  Each approach has its associated pros and cons.
 
 Multidapter is designed to support both strategies.  By turning the model on its head and embueing the distributed services with a configurable, protocol-agnostic way to exchange messages, developers may use existing protocols to integrate legacy systems and others to support new components, switching methods as circumstances change.
+
+#### AsyncAPI
+
+Uses Adapter pattern to provide uniform interface 
+Uses AyncApi for organizing and representing network integration components
+Uses Dry gems to practice clean architecutre
+
+
+
 
 #### AMQP Example
 1. Create node for application

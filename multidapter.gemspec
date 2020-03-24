@@ -27,10 +27,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'i18n',                     '~> 1.0'
   spec.add_dependency 'dry-types',                '~> 1.0'
   spec.add_dependency 'dry-struct',               '~> 1.0'
-  spec.add_dependency 'dry-monads',               '~> 1.0'
+  spec.add_dependency 'dry-monads',               '~> 1.2'
 
-  spec.add_dependency 'dry-validation',           '~> 1.0'
-  spec.add_dependency 'dry-transaction'#,           '~> 1.0'
+  spec.add_dependency 'dry-validation',           '~> 1.2'
+  # spec.add_dependency 'dry-transaction'#,           '~> 1.0'
 
   spec.add_dependency 'bunny',                    '~> 2.0'
   spec.add_dependency 'httparty',                 '~> 0.17'

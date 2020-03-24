@@ -17,6 +17,10 @@ module Multidapter
       include ErrorInitalizer
     end
 
+    class LoadException < LoadError
+      include ErrorInitalizer
+    end
+
     # Defined Errors
     DuplicateAdapterError     = Class.new(Error)
     ConnectionError           = Class.new(Error)
@@ -24,5 +28,7 @@ module Multidapter
     UnsupportedURIScheme      = Class.new(Error)
 
     DuplicateMessageFormatter = Class.new(Error)
+
+    InitializationFileError   = Class.new(LoadException)
   end
 end

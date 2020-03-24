@@ -4,7 +4,7 @@ require 'cgi'
 require 'dry-types'
 
 module Types
-  include Dry.Types()
+  send(:include, Dry.Types())
   include Dry::Logic
 
   # URI                 = Coercible::String.constrained(format: /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/)

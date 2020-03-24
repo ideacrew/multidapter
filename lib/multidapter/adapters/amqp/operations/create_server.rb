@@ -80,7 +80,7 @@ module Multidapter
 
           # Constructor method for AMQP Adapter Server object
           #
-          # @param [Multidapter::AsyncApi::Server]
+          # @param [Multidapter::Server]
           # @return [Multidapter::Adapters::AmqpAdapter]
           def call(params)
             values = yield merge_defaults(params)
@@ -142,7 +142,7 @@ module Multidapter
           end
 
           def create_server(values)
-            Multidapter::AsyncApi::Operations::CreateServer.call(values)
+            Multidapter::Operations::CreateServer.call(values)
           end
         end
 

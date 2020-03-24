@@ -30,7 +30,7 @@ RSpec.describe Multidapter::Adapters::Amqp::Operations::CreateServer do
       expect(result.success?).to be_truthy
       expect(result.value!.first).to be_a Bunny::Session
       expect(Multidapter::Adapters::Amqp::Operations::Active.call(result.value!.first)).to be_truthy
-      expect(result.value!.last.value!).to be_a Multidapter::AsyncApi::Server
+      expect(result.value!.last.value!).to be_a Multidapter::Server
     end
   end
 

@@ -21,7 +21,7 @@ module Multidapter
         # Merge Bunny default bindings with passed overrides != nil.  Use the options hash for any key that should
         # be forced to nil
         def initialize(server, options = {})
-          raise ArgumentError unless server.is_a? Multidapter::AsyncApi::Server
+          raise ArgumentError unless server.is_a? Multidapter::Server
 
           @server = server.to_h
           @bunny_client_klass = Object.const_get(CLIENT_CLASS_NAME)

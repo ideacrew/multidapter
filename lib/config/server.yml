@@ -1,0 +1,42 @@
+---
+servers:
+  development:
+    url: 127.0.0.1
+    description: AMQP host
+    protocol: :amqp
+    protocol_version: '0.9.1'
+    security:
+      type: :user_password
+      description: default credentials for RabbitMQ
+    variables:
+      port: 
+        default: 15672
+      vhost:
+        default: '/'
+      ssl:
+        default: false
+      heartbeat:
+        default: :server
+      frame_max:
+        default: 131_072
+      auth_mechanism:
+        default: 'PLAIN'
+      user:
+        default: guest
+      password:
+        default: guest
+  test:
+    url: 127.0.0.1
+    description: AMQP local host
+    protocol: :amqp
+    protocol_version: '0.9.1'
+    security:
+      type: :user_password
+      description: default credentials for RabbitMQ
+    variables:
+      port: 
+        default: 15672
+      user:
+        default: guest
+      password:
+        default: guest

@@ -72,7 +72,7 @@ module Multidapter
             OPTIONS_DEFAULT.merge(server_options)
           end
           def create_server(params)
-            Success(Multidapter::AsyncApi::Operations::CreateServer.call(params))
+            Success(Multidapter::Operations::CreateServer.call(params))
           end
 
           def open_connection(server)
