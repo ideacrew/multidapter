@@ -28,17 +28,17 @@ module Multidapter
     # @!attribute [r] asyncapi
     # AsyncAPI spec version being used (required)
     # @return [String]
-    attribute :asyncapi,      Types::String
+    attribute :asyncapi,      Types::String.meta(omittable: false)
 
     # @!attribute [r] id
     # identifier of the application the AsyncApi is defining
     # @return [String]
-    attribute :id,            Types::String
+    attribute :id,            Types::String.meta(omittable: true)
 
     # @!attribute [r] info
     # metadata about the API (required)
     # @return [Info]
-    attribute :info,          Info
+    attribute :info,          Info.meta(omittable: false)
 
     # @!attribute [r] servers
     # connection details of servers
@@ -48,7 +48,7 @@ module Multidapter
     # @!attribute [r] channels
     # available channels and messages for API (required)
     # @return [Array<Channel>]
-    attribute :channels,      Types::Array.of(Channel).meta(omittable: true)
+    attribute :channels,      Types::Array.of(Channel).meta(omittable: false)
 
     # @!attribute [r] components
     # container for schemas for the specification

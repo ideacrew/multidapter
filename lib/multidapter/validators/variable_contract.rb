@@ -19,8 +19,8 @@ module Multidapter
     end
     # @!endgroup
 
-    # Schema and validation rules for {Multidapter::Variable}
-    class VariableContract < Dry::Validation::Contract
+    # Schema and validation rules for {Multidapter::Variable} domain object
+    class VariableContract < Contract
 
       # @!method call(Hash)
       #   @param [Symbol] key (optional)

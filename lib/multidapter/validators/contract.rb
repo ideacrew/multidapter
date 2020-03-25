@@ -13,6 +13,55 @@ module Multidapter
 
       StrictSymbolizingHash = Types::Hash.schema({}).strict.with_key_transform(&:to_sym)
 
+      rule(:channels).each do
+        if key? && value
+          result = ChannelContract.new.call(value)
+          # Use dry-validation metadata form to pass error hash along with text to calling service
+          key.failure(text: "invalid channel", error: result.errors.to_h) if result && result.failure?
+        end
+      end
+
+      rule(:components).each do
+        if key? && value
+          result = ComponentContract.new.call(value)
+          # Use dry-validation metadata form to pass error hash along with text to calling service
+          key.failure(text: "invalid component", error: result.errors.to_h) if result && result.failure?
+        end
+      end
+
+      rule(:external_docs).each do
+        if key? && value
+          result = ExternalDocumentationContract.new.call(value)
+          # Use dry-validation metadata form to pass error hash along with text to calling service
+          key.failure(text: "invalid external_doc", error: result.errors.to_h) if result && result.failure?
+        end
+      end
+
+      rule(:servers).each do
+        if key? && value
+          result = ServerContract.new.call(value)
+          # Use dry-validation metadata form to pass error hash along with text to calling service
+          key.failure(text: "invalid server", error: result.errors.to_h) if result && result.failure?
+        end
+      end
+
+      rule(:tags).each do
+        if key? && value
+          result = TagContract.new.call(value)
+          # Use dry-validation metadata form to pass error hash along with text to calling service
+          key.failure(text: "invalid tag", error: result.errors.to_h) if result && result.failure?
+        end
+      end
+
+      rule(:variables).each do
+        if key? && value
+          value.each_pair do |k, v|
+            result = VariableContract.new.call({:key => k, :value => v})
+            # result = VariableContract.new.call(value)
+            key.failure(text: "invalid variable", error: result.errors.to_h) if result && result.failure?
+          end
+        end
+      end
     end
   end
 end

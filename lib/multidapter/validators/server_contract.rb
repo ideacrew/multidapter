@@ -4,7 +4,7 @@ require 'json'
 module Multidapter
   module Validators
 
-    # Schema and validation rules for {Multidapter::Server}
+    # Schema and validation rules for {Multidapter::Server} domain object
     class ServerContract < Dry::Validation::Contract
 
       # @!method call(opts)
@@ -38,18 +38,6 @@ module Multidapter
         end
       end
 
-      rule(:variables).each do
-
-        if key? && value
-          # binding.pry
-          value.each_pair do |k, v|
-            result = VariableContract.new.call({:key => k, :value => v})
-            # result = VariableContract.new.call(value)
-            key.failure(text: "invalid variable", error: result.errors.to_h) if result && result.failure?
-          end
-
-        end
-      end
 
       rule(:security) do
         if key? && value

@@ -7,6 +7,7 @@ require_relative 'channel_contract'
 require_relative 'channel_item_contract'
 require_relative 'server_contract'
 require_relative 'variable_contract'
+require_relative 'adapter_contract'
 
 # Dry::Validation.load_extensions(:monads)
 

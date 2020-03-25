@@ -38,7 +38,7 @@ module Types
     :oauth2,
     :open_id_connect
   )
-  
+
   ComponentTypes = Coercible::Symbol.enum(
     :schemas,
     :messages,
