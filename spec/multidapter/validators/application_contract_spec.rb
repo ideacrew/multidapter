@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Multidapter::Validators::AdapterContract do
+RSpec.describe Multidapter::Validators::ApplicationContract do
 
   let(:asyncapi)      { "2.0" }
   let(:id)            { :adapter_id }

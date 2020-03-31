@@ -8,6 +8,7 @@ require_relative 'schema'
 require_relative 'parameter'
 require_relative 'tag'
 require_relative 'component'
+require_relative 'contact'
 require_relative 'info'
 require_relative 'message_trait'
 require_relative 'message'
@@ -23,7 +24,12 @@ require_relative 'server'
 
 
 module Multidapter
-  class Adapter < Dry::Struct
+
+  # Any kind of computer program or a group of them. It must be a producer, a consumer or both. An application 
+  # may be a microservice, IoT device (sensor), mainframe process, etc. An application may be written in any number 
+  # of different programming languages as long as they support the selected protocol. An application must also use 
+  # a protocol supported by the {Server} in order to connect and exchange {Message Messages}.
+  class Application < Dry::Struct
 
     # @!attribute [r] asyncapi
     # AsyncAPI spec version being used (required)
@@ -38,7 +44,7 @@ module Multidapter
     # @!attribute [r] info
     # metadata about the API (required)
     # @return [Info]
-    attribute :info,          Info.meta(omittable: false)
+    attribute :info,          Multidapter::Info.meta(omittable: false)
 
     # @!attribute [r] servers
     # connection details of servers
