@@ -6,12 +6,12 @@ module Multidapter
     # @!attribute [r] title
     # Title of the application (required)
     # @return [String]
-    attribute :title,             Types::String
+    attribute :title,             Types::String.meta(omittable: true)
 
     # @!attribute [r] version
     # Version of the application API (required)
     # @return [String]
-    attribute :version,           Types::String.default(Multidapter::VERSION.freeze)
+    attribute :version,           Types::String.meta(omittable: true)
 
     # @!attribute [r] description
     # A short description of the application
@@ -26,19 +26,12 @@ module Multidapter
     # @!attribute [r] contact
     # Contact information for the exposed API
     # @return [Hash{ :name => String, :url => Types::Url, :email => Types::Email }]
-    attribute :contact do
-      attribute :name,  Types::String
-      attribute :url,   Types::Url
-      attribute :email, Types::Email
-    end
+    attribute :contact,           Multidapter::Contact.optional.meta(omittable: true)
 
     # @!attribute [r] license
     # License information for the exposed API
     # @return [Hash{ :name => String, :url => Types::Url }]
-    attribute :license do
-      attribute :name,  Types::String
-      attribute :url,   Types::Url
-    end
+    attribute :license,           Multidapter::Contact.optional.meta(omittable: true)
 
   end
 end

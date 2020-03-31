@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'adapters/create'
+require_relative 'applications/create'
 require_relative 'channel_items/create'
 require_relative 'channels/create'
 require_relative 'channels/open'
