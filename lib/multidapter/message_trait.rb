@@ -2,13 +2,13 @@
 
 module Multidapter
 
-  # Describes a trait that MAY be applied to a Message Object. This object MAY contain any property
-  # from the Message Object, except payload and traits
+  # Describes a trait that may be applied to a {Message} object. This object may contain any property
+  # from the Message object, except payload and traits
   class MessageTrait < Dry::Struct
 
     # @!attribute [r] headers
-    # Schema definition of the application headers. Schema MUST be of type “object”.
-    # It MUST NOT define the protocol headers.
+    # Schema definition of the application headers. Schema must be of type “object”.
+    # It must not define the protocol headers.
     # @return [Multidapter::Schema]
     attribute :headers, Multidapter::Schema
 
@@ -33,14 +33,14 @@ module Multidapter
     # A string containing the name of the schema format used to define the message payload.
     # If omitted, implementations should parse the payload as a Schema object. Check out the
     # supported schema formats table for more information. Custom values are allowed but
-    # their implementation is OPTIONAL. A custom value MUST NOT refer to one of the schema formats
+    # their implementation is OPTIONAL. A custom value must not refer to one of the schema formats
     # listed in the table.
     # @return [String]
     attribute :schema_format, Types::String
 
     # @!attribute [r] content_type
-    # The content type to use when encoding/decoding a message’s payload. The value MUST be a
-    # specific media type (e.g. application/json). When omitted, the value MUST be the one specified
+    # The content type to use when encoding/decoding a message’s payload. The value must be a
+    # specific media type (e.g. application/json). When omitted, the value must be the one specified
     # on the default_content_type field
     # @return [String]
     attribute :content_type,  Types::String

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
-# Describes the operations available on a single channel
 
 module Multidapter
 
   # A relative path to an individual channel. The field name MUST be in the form of a
   # RFC 6570 URI template. Query parameters and fragments SHALL NOT be used, instead
   # use bindings to define them
+  # Describes the operations available on a single channel
   class ChannelItem < Dry::Struct
 
     # @!attribute [r] ref

@@ -2,6 +2,7 @@
 
 module Multidapter
 
+  # An addressable component made available by the {Server} for the organization of {Message Messages}
   # Holds the relative paths to the individual channel and their operations. Channel
   # paths are relative to servers.
   # Channels are also known as “topics”, “routing keys”, “event types” or “paths”
