@@ -15,7 +15,7 @@ require 'multidapter/types'
 
 require "multidapter/serializers/yaml"
 require "multidapter/operations/operation"
-require "multidapter/adapter"
+require "multidapter/application"
 require 'multidapter/validators/validator'
 require 'multidapter/uris/amqp'
 
