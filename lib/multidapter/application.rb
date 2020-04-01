@@ -38,8 +38,8 @@ module Multidapter
 
     # @!attribute [r] id
     # identifier of the application the AsyncApi is defining
-    # @return [String]
-    attribute :id,            Types::String.meta(omittable: true)
+    # @return [Symbol]
+    attribute :id,            Types::Symbol.meta(omittable: true)
 
     # @!attribute [r] info
     # metadata about the API (required)

@@ -27,6 +27,13 @@ module Multidapter
         optional(:components).array(Types::HashOrNil)
         optional(:tags).array(Types::HashOrNil)
         optional(:external_docs).array(Types::HashOrNil)
+
+        # @!macro [attach] beforehook
+        #   @!method $0($1)
+        #   Coerce ID attribute to Symbol if passed as String
+        before(:value_coercer) do |result|
+          result.to_h.merge!({ id: result.to_h[:id].to_sym }) if result.to_h.has_key? :id
+        end
       end
 
       rule(:info) do

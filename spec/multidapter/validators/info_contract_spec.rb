@@ -4,8 +4,8 @@ require "spec_helper"
 
 RSpec.describe Multidapter::Validators::InfoContract do
 
-  let(:title)         { "Application Title" }
-  let(:version)       { "0.1.0" }
+  let(:title)             { "Application Title" }
+  let(:version)           { "0.1.0" }
 
   let(:description)       { "First AsyncApi application" }
   let(:terms_of_service)  { "http://example.org/terms/" }
@@ -52,11 +52,31 @@ RSpec.describe Multidapter::Validators::InfoContract do
 
   context "Given valid parameters" do
     context "and required parameters only" do
-      it { expect(subject.call(required_params).success?).to be_truthy }
+
+      it "should successfully return all required params as attributes" do
+        result = subject.call(required_params)
+
+        expect(result.success?).to be_truthy
+        expect(result.to_h[:title]).to eq title
+        expect(result.to_h[:version]).to eq version
+      end
     end
 
     context "and required and optional parameters" do
-      it { expect(subject.call(all_params).success?).to be_truthy }
+      let(:license_result)  { license.merge!(url: URI(license[:url])) }
+      let(:contact_result)  { contact.merge!(url: URI(contact[:url])) }
+
+      it "should successfully return all optional params as attributes" do
+        result = subject.call(all_params)
+
+        expect(result.success?).to be_truthy
+        expect(result[:terms_of_service]).to eq terms_of_service
+        expect(result[:description]).to eq description
+
+        expect(result[:contact]).to eq contact_result
+        expect(result[:license]).to eq license_result
+
+      end
     end
   end
 
