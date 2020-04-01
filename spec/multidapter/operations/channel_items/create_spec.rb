@@ -6,53 +6,67 @@ RSpec.describe Multidapter::Operations::ChannelItems::Create do
 
   let(:ref)                   { "#/components/messages/user_enrolled" }
   let(:description)           { 'A customer enrolled' }
-  let(:subscribe)             { { summary: 'A customer enrolled' } }
-  let(:parameters)            { nil }
-  let(:bindings)              { nil }
 
+  let(:param_description)     { "Id of the user" }
+  let(:param_schema)          { { type: "string" } }
+  let(:param_location)        { "$message.payload#/user/id" }
+  let(:parameter)             { { description: param_description, schema: param_schema, location: param_location } }
+  let(:parameters)            { [parameter] }
 
+  let(:amqp_channel_binding)  { { amqp: {is: :queue, queue: { exclusive: true } } } }
+  let(:bindings)              { amqp_channel_binding }
 
-  let(:bindings)              { amqp_channel_bindings }
-  let(:amqp_channel_bindings) { { amqp: {is: :queue, queue: { exclusive: true } } } }
+  let(:subscribe_operation)   { { operation_id: :customer_enrolled, summary: 'A customer enrolled' } }
+  let(:subscribe)             { subscribe_operation }
 
-
+  let(:publish_operation)     { { operation_id: :enroll_customer, summary: 'Enroll a customer ' } }
   let(:publish)               { publish_operation }
-  let(:publish_operation)     { { publish: { summary: 'Enroll a customer ', message: message } } }
-
-  let(:message)               { { description: 'A longer description of message', payload: message_payload } }
-  let(:multi_message)         { { one_of: [
-                                    { ref: '#/components/messages/add_dependent' },
-                                    { ref: '#/components/messages/cancel_enrollment' },
-                                  ]
-                                  } }
-
-  let(:message_payload)       { { type: 'object',
-                                  properties: {
-                                    user:       { ref: '#/components/schemas/user'},
-                                    enrollment: { ref: '#/components/schemas/enrollment'},
-                                  }
-                                  }
-                                }
 
 
-  let(:common_params)         { {
-                                  ref:          ref,
-                                  description:  description,
-                                  subscribe:    subscribe,
-                                  # parameters:   parameters,
-                                  bindings:     bindings,
-  } }
+  let(:publish_params)            { {
+                                      ref: ref,
+                                      description: description,
+                                      publish: publish,
+                                      # parameters: parameters,
+                                      bindings: bindings,
+                                    }
+                                    }
 
-  context "sending required parameters " do
+  let(:subscribe_params)          { {
+                                      ref: ref,
+                                      description: description,
+                                      subscribe: subscribe,
+                                      # parameters: parameters,
+                                      bindings: bindings,
+                                    }
+                                    }
 
-    it "should create new Channel instance" do
-      expect(subject.call(common_params).success?).to be_truthy
-      expect(subject.call(common_params).success).to be_a Multidapter::ChannelItem
+
+  describe '#call' do
+    context "with no params" do
+
+      it 'should create an instance where all attribute values are nil' do
+        expect(subject.call({}).success?).to be_truthy
+      end
     end
 
-    it "should have attributes that match input common_params" do
-      expect(subject.call(common_params).success.to_h).to eq common_params
-    end
+    context "with publish operation params" do
 
+      it 'should successfully create an instance' do
+        result = subject.call(publish_params)
+
+        expect(result.success?).to be_truthy
+        expect(result.value!).to be_a Multidapter::ChannelItem
+        expect(result.value!.to_h[:ref]).to eq ref
+        expect(result.value!.to_h[:description]).to eq description
+
+# binding.pry
+        expect(result.value!.publish).to be_a Multidapter::Operation
+        expect(result.value!.publish.to_h).to eq publish_operation
+
+        # expect(result.value!.bindings).to be_a Multidapter::ChannelBinding
+        expect(result.value!.bindings.to_h).to eq bindings
+      end
+    end
   end
 end

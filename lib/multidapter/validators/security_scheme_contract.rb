@@ -4,7 +4,7 @@ module Multidapter
   module Validators
 
     # Schema and validation rules for {Multidapter::SecurityScheme}
-    class SecuritySchemeContract < Dry::Validation::Contract
+    class SecuritySchemeContract < Contract
 
       # @!method call(Hash)
       #   @param [Types::SecuritySchemeType] type (required)

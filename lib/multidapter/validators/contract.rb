@@ -13,55 +13,87 @@ module Multidapter
 
       StrictSymbolizingHash = Types::Hash.schema({}).strict.with_key_transform(&:to_sym)
 
-      rule(:channels).each do
-        if key? && value
-          result = ChannelContract.new.call(value)
-          # Use dry-validation metadata form to pass error hash along with text to calling service
-          key.failure(text: "invalid channel", error: result.errors.to_h) if result && result.failure?
-        end
-      end
-
       rule(:components).each do
-        if key? && value
-          result = ComponentContract.new.call(value)
-          # Use dry-validation metadata form to pass error hash along with text to calling service
-          key.failure(text: "invalid component", error: result.errors.to_h) if result && result.failure?
+        if key? && value do
+            result = ComponentContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid component hash", error: result.errors.to_h) if result && result.failure?
+          end
         end
       end
 
-      rule(:external_docs).each do
-        if key? && value
-          result = ExternalDocumentationContract.new.call(value)
-          # Use dry-validation metadata form to pass error hash along with text to calling service
-          key.failure(text: "invalid external_doc", error: result.errors.to_h) if result && result.failure?
+      rule(:channels).each do
+        if key? && value do
+            result = ChannelContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid channel hash", error: result.errors.to_h) if result && result.failure?
+          end
+        end
+      end
+
+      rule(:channel_items).each do
+        if key? && value do
+            result = ChannelItemContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid channel_item hash", error: result.errors.to_h) if result && result.failure?
+          end
+        end
+      end
+
+      rule(:info) do
+        if key? do
+            result = InfoContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid info hash", error: result.errors.to_h) if result && result.failure?
+          end
+        end
+      end
+
+      rule(:message) do
+        if key? do
+            result = MessageContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid message hash", error: result.errors.to_h) if result && result.failure?
+          end
+        end
+      end
+
+      rule(:publish) do
+        if key? do
+            result = OperationContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid publish hash", error: result.errors.to_h) if result && result.failure?
+          end
         end
       end
 
       rule(:servers).each do
-        if key? && value
-          result = ServerContract.new.call(value)
-          # Use dry-validation metadata form to pass error hash along with text to calling service
-          key.failure(text: "invalid server", error: result.errors.to_h) if result && result.failure?
+        if key? && value do
+            result = ServerContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid server hash", error: result.errors.to_h) if result && result.failure?
+          end
         end
       end
 
       rule(:tags).each do
-        if key? && value
-          result = TagContract.new.call(value)
-          # Use dry-validation metadata form to pass error hash along with text to calling service
-          key.failure(text: "invalid tag", error: result.errors.to_h) if result && result.failure?
-        end
-      end
-
-      rule(:variables).each do
-        if key? && value
-          value.each_pair do |k, v|
-            result = VariableContract.new.call({:key => k, :value => v})
-            # result = VariableContract.new.call(value)
-            key.failure(text: "invalid variable", error: result.errors.to_h) if result && result.failure?
+        if key? && value do
+            result = TagContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid tag hash", error: result.errors.to_h) if result && result.failure?
           end
         end
       end
+
+      rule(:external_docs).each do
+        if key? && value do
+            result = ExternalDocumentationContract.new.call(value)
+            # Use dry-validation metadata form to pass error hash along with text to calling service
+            key.failure(text: "invalid external_doc hash", error: result.errors.to_h) if result && result.failure?
+          end
+        end
+      end
+
     end
   end
 end

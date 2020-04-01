@@ -4,7 +4,7 @@ module Multidapter
   module Validators
 
     # Schema and validation rules for {Multidapter::Channel}
-    class ChannelContract < Dry::Validation::Contract
+    class ChannelContract < Contract
 
       # @!method call(Hash)
       #   @param [String] channel_id (optional)

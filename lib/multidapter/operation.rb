@@ -6,7 +6,6 @@ module Multidapter
   # Describes a publish or a subscribe operation. This provides a place to document how and
   # why messages are sent and received. For example, an operation might describe a chat application
   # use case where a user sends a text message to a group
-
   class Operation < Dry::Struct
 
     # @!attribute [r] operation_id
@@ -15,7 +14,7 @@ module Multidapter
     # the operationId to uniquely identify an operation, therefore, it is RECOMMENDED to follow
     # common programming naming conventions
     # @return [String]
-    attribute :operation_id, Types::String.meta(omittable: true)
+    attribute :operation_id, Types::Symbol.meta(omittable: true)
 
     # @!attribute [r] summary
     # Short summary of what the operation is about

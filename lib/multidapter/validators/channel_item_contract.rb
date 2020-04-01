@@ -4,7 +4,7 @@ module Multidapter
   module Validators
 
     # Schema and validation rules for {Multidapter::ChannelItem}
-    class ChannelItemContract < Dry::Validation::Contract
+    class ChannelItemContract < Contract
 
       # @!method call(Hash)
       #   @param [String] ref (optional)
@@ -20,14 +20,8 @@ module Multidapter
         optional(:publish).value(:hash)
         optional(:description).value(:string)
         optional(:parameters).value(Types::HashOrNil)
-        optional(:bindings).value(:hash)
+        optional(:bindings).value(Types::HashOrNil)
       end
-
-      # rule(:subscribe) do
-      #   if values.keys.include?(:publish)
-      #     key.failure('invalid channel_item: :subscribe and :publish operations not allowed in same instance')
-      #   end
-      # end
 
     end
 

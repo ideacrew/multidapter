@@ -7,14 +7,27 @@ module Multidapter
       class Create
         send(:include, Dry::Monads[:result, :do])
 
+        def self.call(params)
+          new(params)
+        end
+
         def call(params)
-          result = yield verify(params)
-          Success(result)
+          values = yield validate(params)
+          entity = yield create(values)
+
+          Success(entity)
         end
 
         private
 
-        def verify(params)
+        def validate(params)
+          result = Multidapter::Validators::ChannelItemContract.new.call(params)
+          result.success? ? Success(result) : Failure(result)
+        end
+
+        def create(values)
+          result = Multidapter::ChannelItem.call(values.to_h)
+          Success(result)
         end
 
       end

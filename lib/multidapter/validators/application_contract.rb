@@ -36,61 +36,6 @@ module Multidapter
         end
       end
 
-      rule(:info) do
-        if key? do
-            result = InfoContract.new.call(value)
-            # Use dry-validation metadata form to pass error hash along with text to calling service
-            key.failure(text: "invalid info hash", error: result.errors.to_h) if result && result.failure?
-          end
-        end
-      end
-
-      rule(:channels).each do
-        if key? && value do
-            result = ChannelContract.new.call(value)
-            # Use dry-validation metadata form to pass error hash along with text to calling service
-            key.failure(text: "invalid channel hash", error: result.errors.to_h) if result && result.failure?
-          end
-        end
-      end
-
-      rule(:servers).each do
-        if key? && value do
-            result = ServerContract.new.call(value)
-            # Use dry-validation metadata form to pass error hash along with text to calling service
-            key.failure(text: "invalid server hash", error: result.errors.to_h) if result && result.failure?
-          end
-        end
-      end
-
-      rule(:components).each do
-        if key? && value do
-            result = ComponentContract.new.call(value)
-            # Use dry-validation metadata form to pass error hash along with text to calling service
-            key.failure(text: "invalid component hash", error: result.errors.to_h) if result && result.failure?
-          end
-        end
-      end
-
-      rule(:tags).each do
-        if key? && value do
-            result = TagContract.new.call(value)
-            # Use dry-validation metadata form to pass error hash along with text to calling service
-            key.failure(text: "invalid tag hash", error: result.errors.to_h) if result && result.failure?
-          end
-        end
-      end
-
-      rule(:external_docs).each do
-        if key? && value do
-            result = ExternalDocumentationContract.new.call(value)
-            # Use dry-validation metadata form to pass error hash along with text to calling service
-            key.failure(text: "invalid external_doc hash", error: result.errors.to_h) if result && result.failure?
-          end
-        end
-      end
-
-
     end
   end
 end

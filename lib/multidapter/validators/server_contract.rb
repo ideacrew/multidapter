@@ -5,7 +5,7 @@ module Multidapter
   module Validators
 
     # Schema and validation rules for {Multidapter::Server} domain object
-    class ServerContract < Dry::Validation::Contract
+    class ServerContract < Contract
 
       # @!method call(opts)
       # @param [Hash] opts the parameters to validate using this contract
