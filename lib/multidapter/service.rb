@@ -30,7 +30,7 @@ module Multidapter
   # may be a microservice, IoT device (sensor), mainframe process, etc. An application may be written in any number 
   # of different programming languages as long as they support the selected protocol. An application must also use 
   # a protocol supported by the {Server} in order to connect and exchange {Message Messages}.
-  class Application < Dry::Struct
+  class Service < Dry::Struct
 
     # @!attribute [r] asyncapi
     # AsyncAPI spec version being used (required)

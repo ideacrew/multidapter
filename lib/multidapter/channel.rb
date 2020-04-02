@@ -11,7 +11,7 @@ module Multidapter
     # @!attribute [r] channel_id
     # An identifier for this Channel
     # @return [String]
-    attribute :channel_id,    Types::String
+    attribute :channel_id,    Types::Symbol
 
     # @!attribute [r] channel_item
     # A relative path to an individual channel. The field name MUST be in the form of a

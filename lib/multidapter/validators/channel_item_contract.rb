@@ -3,17 +3,18 @@
 module Multidapter
   module Validators
 
-    # Schema and validation rules for {Multidapter::ChannelItem}
+    # Schema and validation rules for {ChannelItem}
     class ChannelItemContract < Contract
 
-      # @!method call(Hash)
-      #   @param [String] ref (optional)
-      #   @param [Hash] subscribe (optional)
-      #   @param [Hash] publish (optional)
-      #   @param [String] description (optional)
-      #   @param [Types::HashOrNil] parameters (optional)
-      #   @param [Hash] bindings (optional)
-      #   @return [Dry::Monads::Result::Success, Dry::Monads::Result::Failure]
+      # @!method call(opts)
+      # @param [Hash] opts the parameters to validate using this contract
+      # @option opts [String] :ref optional
+      # @option opts [Hash] :subscribe optional
+      # @option opts [Hash] :publish optional
+      # @option opts [String] :description optional
+      # @option opts [Types::HashOrNil] :parameters optional
+      # @option opts [Types::HashOrNil] :bindings optional
+      # @return [Dry::Monads::Result::Success, Dry::Monads::Result::Failure]
       params do
         optional(:ref).value(:string)
         optional(:subscribe).value(:hash)

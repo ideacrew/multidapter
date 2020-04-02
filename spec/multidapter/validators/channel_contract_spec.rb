@@ -7,7 +7,7 @@ RSpec.describe Multidapter::Validators::ChannelContract do
 
   context "Given invalid required parameters" do
     let(:channel_id)            { {} }
-    let(:error_message) { { :channel_id => ["is missing"] } }
+    let(:error_message)         { { :channel_id => ["is missing"] } }
 
     context "sending no parameters should fail validation with :errors" do
       it { expect(subject.call({}).failure?).to be_truthy }
@@ -16,7 +16,7 @@ RSpec.describe Multidapter::Validators::ChannelContract do
   end
 
   context "Given valid required parameters" do
-    let(:channel_id)                  { "user_enrollments" }
+    let(:channel_id)                  { :user_enrollments }
     let(:channel_item)        { { subscribe: { summary: 'A customer enrolled' } } }
 
     let(:required_params)     { { channel_id: channel_id } }

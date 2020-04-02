@@ -9,11 +9,11 @@ RSpec.describe Multidapter::Adapters::Amqp::AmqpBunnyAdapter do
 
   describe "Given a valid server configuration" do
     let(:server_params)         { {url: '127.0.0.1', protocol: :amqp, } }
-    let(:server_object_klass)   { Multidapter::Operations::CreateServer }
+    let(:server_object_klass)   { Multidapter::Operations::Servers::Create }
     let(:server_object)         { server_object_klass.new.call(server_params).value! }
 
     let(:open_status)           { :open }
-    let(:version)               { "2.14.3"  }
+    let(:version)               { "2.14.4"  }
     let(:protocol_version)      { "0.9.1"  }
 
     it "should initialize a Server" do

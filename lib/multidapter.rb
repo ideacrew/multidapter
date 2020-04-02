@@ -9,16 +9,17 @@ require 'dry/monads/result'
 require 'dry/monads/do'
 require 'dry-struct'
 
+# require 'multidapter/uris/amqp'
 require 'multidapter/types'
 # require "multidapter/log"
 # require "multidapter/config/load_config"
 
 require "multidapter/serializers/yaml"
 require "multidapter/operations/operation"
-require "multidapter/application"
+require "multidapter/service"
 require 'multidapter/validators/validator'
-require 'multidapter/uris/amqp'
 
+require 'multidapter/adapters'
 
 module Multidapter
 

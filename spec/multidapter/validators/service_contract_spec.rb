@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Multidapter::Validators::ApplicationContract do
+RSpec.describe Multidapter::Validators::ServiceContract do
 
   let(:asyncapi)      { "2.0" }
   let(:id)            { :adapter_id }
@@ -53,10 +53,12 @@ RSpec.describe Multidapter::Validators::ApplicationContract do
   context "Given valid parameters" do
     context "and required parameters only" do
       it { expect(subject.call(required_params).success?).to be_truthy }
+      it { expect(subject.call(required_params).to_h).to eq required_params }
     end
 
     context "and required and optional parameters" do
       it { expect(subject.call(all_params).success?).to be_truthy }
+      it { expect(subject.call(all_params).to_h).to eq all_params }
     end
   end
 

@@ -60,7 +60,6 @@ RSpec.describe Multidapter::Operations::ChannelItems::Create do
         expect(result.value!.to_h[:ref]).to eq ref
         expect(result.value!.to_h[:description]).to eq description
 
-# binding.pry
         expect(result.value!.publish).to be_a Multidapter::Operation
         expect(result.value!.publish.to_h).to eq publish_operation
 

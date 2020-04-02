@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Multidapter::Operations::Applications::Create do
+RSpec.describe Multidapter::Operations::Services::Create do
 
   let(:asyncapi)      { "2.0" }
   let(:id)            { :application_key }
@@ -11,7 +11,7 @@ RSpec.describe Multidapter::Operations::Applications::Create do
   let(:version)       { "0.1.0" }
   let(:info)          { { title: title, version: version } }
 
-  let(:channel_id)    { "email_notices" }
+  let(:channel_id)    { :email_notices }
   let(:channels)      { [{channel_id: channel_id}] }
 
 
@@ -31,7 +31,7 @@ RSpec.describe Multidapter::Operations::Applications::Create do
         result = subject.call(required_params)
 
         expect(result.success?).to be_truthy
-        expect(result.value!).to be_a Multidapter::Application
+        expect(result.value!).to be_a Multidapter::Service
 
         expect(result.value!.to_h[:asyncapi]).to eq asyncapi
         expect(result.value!.to_h[:id]).to eq id

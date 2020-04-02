@@ -4,7 +4,7 @@ module Multidapter
   module Validators
 
     # Schema and validation rules for {Application} domain object
-    class ApplicationContract < Contract
+    class ServiceContract < Contract
 
       # @!method call(opts)
       # @param [Hash] opts the parameters to validate using this contract

@@ -4,6 +4,7 @@ module Multidapter
   module Operations
     module Servers
 
+      # Create a {Server} instance
       class Create
         send(:include, Dry::Monads[:result, :do])
 
@@ -11,6 +12,11 @@ module Multidapter
           new.call(params)
         end
 
+        # @param [Hash] server_hash Values to use to create the Server instance. Validated using {Validators::ServerContract ServerContract}
+        # @example
+        #  { url: "amqp://example.com", protocol: :amqp }
+        # @return [Dry::Monads::Result::Success<Server>] if Server is created
+        # @return [Dry::Monads::Result::Failure<Hash>] if Server creation fails
         def call(params)
           values  = yield validate(params)
           server  = yield create_server(values)

@@ -3,7 +3,7 @@ require "spec_helper"
 
 RSpec.describe Multidapter::Operations::Servers::Create do
 
-  let(:url)               { "amqp://example.com" }
+  let(:url)               { URI("amqp://example.com") }
   let(:protocol)          { :amqp }
   let(:protocol_version)  { "0.9.1" }
   let(:description)       { "RabbitMQ server" }
@@ -22,17 +22,17 @@ RSpec.describe Multidapter::Operations::Servers::Create do
                               # bindings:         bindings,
   } }
 
-  let(:server_params)        { required_params.merge(optional_params) }
+  let(:all_params)        { required_params.merge(optional_params) }
 
   context "sending required parameters " do
 
     it "should create new Server instance" do
       expect(subject.call(required_params).success).to be_truthy
-      expect(subject.call(required_params).success[0]).to be_a(Multidapter::Server)
+      expect(subject.call(required_params).value!).to be_a(Multidapter::Server)
     end
 
     it "should have attributes that match input params" do
-      result = subject.call(required_params).success[0].to_h
+      result = subject.call(required_params).value!.to_h
 
       expect(result[:url]).to be_a URI::AMQP
       expect(result.reject { |k,v| k == :url }).to eq required_params.reject { |k,v| k == :url }
@@ -42,32 +42,29 @@ RSpec.describe Multidapter::Operations::Servers::Create do
   context "sending required parameters " do
 
     it "should should create new Server instance" do
-      expect(subject.call(required_params).success).to be_truthy
-      expect(subject.call(required_params).success[0]).to be_a(Multidapter::Server)
+      expect(subject.call(required_params).success?).to be_truthy
+      expect(subject.call(required_params).value!).to be_a(Multidapter::Server)
     end
 
     it "should have attributes that match input params" do
-      result = subject.call(server_params).success[0].to_h
+      result = subject.call(all_params).value!.to_h
 
       expect(result[:url]).to be_a URI::AMQP
-      expect(result.reject { |k,v| k == :url }).to eq server_params.reject { |k,v| k == :url }
+      expect(result.reject { |k,v| k == :url }).to eq all_params.reject { |k,v| k == :url }
     end 
   end
 
   context "With custom Variable values" do
-    let(:heartbeat)         { { key: :heartbeat, value: { default: 5, description: "Customize heartbeat value"} } }
-    let(:frame_max)         { { key: :frame_max, value: { default: 131_000, description: "Customize frame_max value"} } }
+    let(:heartbeat)         { { key: :heartbeat, value: { default: "5", description: "Customize heartbeat value"} } }
+    let(:frame_max)         { { key: :frame_max, value: { default: "131000", description: "Customize frame_max value"} } }
     let(:custom_variables)  { { variables: [heartbeat, frame_max] } } 
-    let(:options_hash)      { { :heartbeat=>"5", :frame_max=>"131000" } }
-
-    let(:params)            { server_params.merge(custom_variables) }
+    let(:custom_params)     { all_params.merge(custom_variables) }
 
     it "should replace the default options with custom values" do
-      result = subject.call(params)
-
-      expect(result.success).to be_truthy
-      expect(result.success[0]).to be_a(Multidapter::Server)
-      expect(result.success[1]).to eq options_hash
+      result = subject.call(custom_params)
+      expect(result.success?).to be_truthy
+      expect(result.value!).to be_a(Multidapter::Server)
+      expect(result.value!.to_h).to eq custom_params
     end
   end
 
