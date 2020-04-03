@@ -8,7 +8,7 @@ module Multidapter
       class Create
         send(:include, Dry::Monads[:result, :do])
 
-        # @param [Hash] channel_hash Values to use to create the Channel instance. Validated using {Validators::ChannelContract ChannelContract}
+        # @param [Hash] params Values to use to create the Channel instance. Validated using {Validators::ChannelContract ChannelContract}
         # @example
         #  { channel_id: "user_enrollments" channel_item: { subscribe: { summary: 'A customer enrolled' } } }
         # @return [Dry::Monads::Result::Success<Channel>] if Channel is created

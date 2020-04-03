@@ -6,7 +6,7 @@ module Multidapter
     module Amqp
       module Operations
         class ConnectServer
-          include Dry::Monads[:result, :do]
+          send(:include, Dry::Monads[:result, :do])
 
           # Defaults for Bunny client connection. May be overriden with Options hash
           OPTIONS_DEFAULT = {

@@ -12,9 +12,13 @@ module Multidapter
           new(params)
         end
 
-        # @param [Hash] service_hash Values to use to create the Service instance. Validated using {Validators::ServiceContract ServiceContract}
+        # @param [Hash] params Values to use to create the Service instance. Validated using {Validators::ServiceContract ServiceContract}
         # @example
-        #  { asyncapi: "2.0", info: { title: "Notice Service", version: "0.1.0" }, channels: [{channel_id: :email_notices}] }
+        #  { id:        :amqp_service,
+        #    asyncapi:  "2.0",
+        #    info:      Info,
+        #    servers:   [Server],
+        #    channels:  [Channel] }
         # @return [Dry::Monads::Result::Success<Service>] if Service is created
         # @return [Dry::Monads::Result::Failure<Hash>] if Service creation fails
         def call(params)

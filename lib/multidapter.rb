@@ -23,13 +23,15 @@ require 'multidapter/adapters'
 
 module Multidapter
 
-    def self.generate_uuid
-      SecureRandom.uuid
-    end
+  # Generates a random v4 Universally Unique Identifier
+  def self.generate_uuid
+    SecureRandom.uuid
+  end
 
-    def self.generate_id
-      generate_uuid
-    end
+  # Generates a random v4 Universally Unique Identifier
+  def self.generate_id
+    generate_uuid
+  end
 
   module ClassMethods
 

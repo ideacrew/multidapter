@@ -12,7 +12,7 @@ module Multidapter
         # Bunnie client's default settings for each value
 
         class CreateServer
-          include Dry::Monads[:result, :do]
+          send(:include, Dry::Monads[:result, :do])
 
           {
             url: [ :host, :port, :vhost ],
@@ -79,8 +79,7 @@ module Multidapter
           }.freeze
 
           # Constructor method for AMQP Adapter Server object
-          #
-          # @param [Multidapter::Server]
+          # @param [Multidapter::Server] params Server instance
           # @return [Multidapter::Adapters::AmqpAdapter]
           def call(params)
             values = yield merge_defaults(params)

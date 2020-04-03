@@ -6,21 +6,22 @@ module Multidapter
     # Schema and validation rules for {Multidapter::Message}
     class MessageContract < Contract
 
-      # @!method call(Hash)
-      #   @param [Hash] headers optional
-      #   @param [Mixed] payload optional
-      #   @param [String] schema_format optional
-      #   @param [String] content_type optional
-      #   @param [String] name optional
-      #   @param [String] title optional
-      #   @param [String] summary optional
-      #   @param [String] description optional
-      #   @param [Array<Tag>] tags optional
-      #   @param [ExternalDocumentation] external_docs optional
-      #   @param [Hash] bindings optional
-      #   @param [Array<Example>] examples optional
-      #   @param [Array<Trait>] traits optional
-      #   @return [Dry::Monads::Result::Success, Dry::Monads::Result::Failure]
+      # @!method call(opts)
+      # @param [Hash] opts the parameters to validate using this contract
+      # @option opts [Hash] :headers optional
+      # @option opts [Mixed] :payload optional
+      # @option opts [String] :schema_format optional
+      # @option opts [String] :content_type optional
+      # @option opts [String] :name optional
+      # @option opts [String] :title optional
+      # @option opts [String] :summary optional
+      # @option opts [String] :description optional
+      # @option opts [Array<Tag>] :tags optional
+      # @option opts [ExternalDocumentation] :external_docs optional
+      # @option opts [Hash] :bindings optional
+      # @option opts [Array<Example>] :examples optional
+      # @option opts [Array<Trait>] :traits optional
+      # @return [Dry::Monads::Result::Success, Dry::Monads::Result::Failure]
       params do
         optional(:headers).maybe(Types::HashOrNil)
         optional(:payload).maybe(:any)

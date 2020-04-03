@@ -18,10 +18,11 @@ module Multidapter
           vhost:        '/',
           kind:         EXCHANGE_KINDS[:default],
           durable:      true,   # Exchange survives broker restart
+          exclusive:    true,   
           auto_delete:  false,  # Exchange is deleted when last queue is unbound from it
         }
 
-        attr_reader :name, OPTION_DEFAULTS.keys #:vhost, :durable, :kind, :exclusive, :auto_delete
+        attr_reader :name, :vhost, :durable, :kind, :exclusive, :auto_delete
 
         def initialize(uri, options = {})
           super

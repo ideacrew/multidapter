@@ -3,7 +3,7 @@
 module Multidapter
   module Validators
 
-    # Schema and validation rules for {Application} domain object
+    # Schema and validation rules for {Service} domain object
     class ServiceContract < Contract
 
       # @!method call(opts)
@@ -15,7 +15,7 @@ module Multidapter
       # @option opts [Array<Hash>] :servers {Server} optional
       # @option opts [Array<Hash>] :components {Component} optional
       # @option opts [Array<Hash>] :tags {Tag} optional
-      # @option opts [Array<Hash>] :external_docs {ExternalDocument} optional
+      # @option opts [Array<Hash>] :external_docs {ExternalDocumentation} optional
       # @return [Dry::Monads::Result::Success] if params pass validation
       # @return [Dry::Monads::Result::Failure] if params fail validation
       params do

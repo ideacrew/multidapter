@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'security_schemes/create_user_password_scheme'
 require_relative 'services/create'
 require_relative 'channel_items/create'
 require_relative 'channels/create'

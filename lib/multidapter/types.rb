@@ -10,24 +10,25 @@ module Types
   # URI                 = Coercible::String.constrained(format: /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/)
   # URI                 = Coercible::String.constructor(->(val){ ::URI::parse(val) })
   # URI                 = Types.Constructor(URI) { |value| ::URI::parse(value) }
-  Uri                 = Types.Constructor(::URI) { |val| (val.is_a? URI) ? val : ::URI.parse(val) }
-  Url                 = Uri
+  Uri                   = Types.Constructor(::URI) { |val| (val.is_a? URI) ? val : ::URI.parse(val) }
+  Url                   = Uri
 
   # URL   = String.constrained(format: //)
   # URI   = String.constrained(format: /^#{URI::regexp}$/)
   # URL   = String.constrained(format: /^#{URI::regexp(%w(http https))}$/)
 
-  Email               = Coercible::String.constrained(format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
-  Emails              = Array.of(Email)
-  CallableDateTime    = Types::DateTime.default { DateTime.now }
+  # StrictSymbolizingHash = Types::Hash.schema({}).strict.with_key_transform(&:to_sym)
+  Email                 = Coercible::String.constrained(format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
+  Emails                = Array.of(Email)
+  CallableDateTime      = Types::DateTime.default { DateTime.now }
 
-  PositiveInteger     = Coercible::Integer.constrained(gteq: 0)
-  HashOrNil           = Types::Hash | Types::Nil
-  StringOrNil         = Types::String | Types::Nil
+  PositiveInteger       = Coercible::Integer.constrained(gteq: 0)
+  HashOrNil             = Types::Hash | Types::Nil
+  StringOrNil           = Types::String | Types::Nil
 
   # ApiKeyLocation      = Coercible::Symbol.enum(:user, :password)
   # HttpApiKeyLocation  = Coercible::Symbol.enum(:query, :heder, :cookie)
-  SecuritySchemeType  = Coercible::Symbol.enum(
+  SecuritySchemeType    = Coercible::Symbol.enum(
     :user_password,
     :api_key,
     :x509,

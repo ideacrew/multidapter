@@ -3,7 +3,6 @@
 module Multidapter
 
   # Defines a security scheme that can be used by the operations. Supported schemes are:
-  #
   # * User/Password
   # * API key (either as user or as password)
   # * X.509 certificate
@@ -17,11 +16,11 @@ module Multidapter
     # @!attribute [r] type
     # Applies to: Any (required). The type of the security scheme. Valid values are:
     # * :user_password
-    # * :api_ey
+    # * :api_key
     # * :x509
-    # * :symmetric_ncryption
-    # * :asymmetric_ncryption
-    # * :http_kpi_key
+    # * :symmetric_encryption
+    # * :asymmetric_encryption
+    # * :http_api_key
     # * :http
     # * :oauth2
     # * :open_id_connect

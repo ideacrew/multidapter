@@ -56,7 +56,7 @@ consumer_proxy = Amqp::ConsumerFactory.new
 consumer_proxy.handle_message(metadata, payload)
 consumer_proxy.start
 
-worker = Amqp::WorkerFactory.new(channel, queue_name, consumer, options = {retry_count = 5, retry_delay = :exponential_backoff} )
+worker = Amqp::WorkerFactory.new(channel, queue_name, consumer, options = {retry_count: 5, retry_delay: :exponential_backoff} )
 worker.start
 
 

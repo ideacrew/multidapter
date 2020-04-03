@@ -2,8 +2,11 @@
 
 module Multidapter
   module Validators
+
+    # Configuration values and shared rules and macros for domain model validation contracts
     class Contract < Dry::Validation::Contract
       config.messages.default_locale = :en
+
       # config.messages.backend = :i18n
       # config.messages.default_locale - default I18n-compatible locale identifier
       # config.messages.backend - the localization backend to use. Supported values are: :yaml and :i18n
@@ -11,8 +14,13 @@ module Multidapter
       # config.messages.top_namespace - the key in the locale files under which messages are defined, by default it's dry_validation
       # config.messages.namespace - custom messages namespace for a contract class. Use this to differentiate common messages
 
-      StrictSymbolizingHash = Types::Hash.schema({}).strict.with_key_transform(&:to_sym)
 
+      # @!macro [attach] rulemacro
+      #   Validates a nested hash of $1 params
+      #   @!method $0($1)
+      #   @param [Symbol] $1 key
+      #   @return [Dry::Monads::Result::Success] if nested $1 params pass validation
+      #   @return [Dry::Monads::Result::Failure] if nested $1 params fail validation      
       rule(:components).each do
         if key? && value do
             result = ComponentContract.new.call(value)

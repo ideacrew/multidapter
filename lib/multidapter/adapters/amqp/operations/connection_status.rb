@@ -7,7 +7,7 @@ module Multidapter
     module Amqp
       module Operations
         class ConnectionStatus
-          include Dry::Monads[:result, :do]
+          send(:include, Dry::Monads[:result, :do])
 
           def self.call(params)
             new.call(params)

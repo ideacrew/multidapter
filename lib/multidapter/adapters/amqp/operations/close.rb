@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Close connection to AMQP server if open.  If connection is in some other status, 
+# Close connection to AMQP server if open.  If connection is in some other status,
 # return the status in a Failure monad
 
 module Multidapter
@@ -8,7 +8,7 @@ module Multidapter
     module Amqp
       module Operations
         class Close
-          include Dry::Monads[:result, :do]
+          send(:include, Dry::Monads[:result, :do])
 
           def self.call(params)
             new.call(params)

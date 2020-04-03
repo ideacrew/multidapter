@@ -12,9 +12,12 @@ module Multidapter
           new.call(params)
         end
 
-        # @param [Hash] server_hash Values to use to create the Server instance. Validated using {Validators::ServerContract ServerContract}
+        # @param [Hash] params Values to use to create the Server instance. Validated using {Validators::ServerContract ServerContract}
         # @example
-        #  { url: "amqp://example.com", protocol: :amqp }
+        #   { protocol:         :amqp,
+        #     url:              "amqp://localhost",
+        #     description:      "Primary AMQP host",
+        #     security_scheme:  SecurityScheme }
         # @return [Dry::Monads::Result::Success<Server>] if Server is created
         # @return [Dry::Monads::Result::Failure<Hash>] if Server creation fails
         def call(params)

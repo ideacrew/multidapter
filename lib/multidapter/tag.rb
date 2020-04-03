@@ -12,7 +12,7 @@ module Multidapter
     attribute :name,            Types::Symbol.meta(omittable: false)
 
     # @!attribute [r] description
-    # short description for the tag. CommonMark syntax can be used for
+    # Short description for the tag. CommonMark syntax can be used for
     # rich text representation
     # @return [String]
     attribute :description,     Types::String.meta(omittable: true)
